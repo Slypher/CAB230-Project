@@ -1,2 +1,5 @@
 # CAB230-Project
-A PHP based webserver with an SQL backend.
+A PHP / SQL based web server with JavaScript / HTML Forms on client-side
+
+# Credits
+-
