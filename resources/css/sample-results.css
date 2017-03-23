@@ -1,55 +1,107 @@
 /* Main */
 
-body {
+body{
+    background-color: whitesmoke;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+body{
+    text-align: center;
+}
+
+#wrapper{
+    text-align: left;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    width:1256px;
-    height:10000px;
-    padding-right: 10px;
-    font: 10px/13px 'Lucida Sans',sans-serif;  
 }
-.wrapper{
-    overflow: hidden;
-    margin: 10px;
+
+#header {
+    height: 80px;
+    text-align: center;
+    background-color: red;
+    color: white;
+}
+
+#header h1 {
+    margin: 0px;
+    padding: 10px;
+}
+
+#content {
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#menu {
+    background-color: darkred;
+}
+
+#menu a{
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+    text-align: center;
+    font-size: 12pt;
+    color: white;
+    text-decoration: none;
+    
+}
+
+#menu a:hover {
+    text-decoration: underline;
+}
+#footer {
+    margin: 5px;
+    border: 1px dashed black;
+    background-color: #CCCCFF;
+    text-align: center;
+    clear: both;
+    height: 50px;
+}
 }
 
 /* Top Trending Article Including Transitions */
-.listItem-a1{
+#listItem-a1{
     list-style-type: none;
     margin: 0px;
     padding: 150px;
     padding-bottom: 20px;
 }
-.listItem-a1 li{
+#listItem-a1 li{
     float: left;
-    padding-bottom: 0px;
     position: relative;
     overflow: hidden;
 }
 
-.listItem-a1 li:hover .topTrending-description{
+#listItem-a1 li:hover .topTrending-description{
     opacity: 1;
 }
 
-.listItem-a1 li:hover img{
+#listItem-a1 li:hover img{
     opacity: 1;
+    border-radius: 1%;
     transform: scale(1.15,1.15);
     -webkit-transform:scale(1.15,1.15);
     -moz-transform:scale(1.15,1.15);
     -ms-transform:scale(1.15,1.15);
     -o-transform:scale(1.15,1.15);
 }
-.listItem-a1 img{
+#listItem-a1 img{
     width: 100%;
     height: auto;
     z-index: 4;
+    border-radius: 1%;
     -webkit-transition:all 0.25s ease-in-out;
     -moz-transition:all 0.25s ease-in-out;
     -o-transition:all 0.25s ease-in-out;
     -ms-transition:all 0.25s ease-in-out;
     transition:all 0.25s ease-in-out;
 }
-.listItem-a1 .topTrending-description{
+#listItem-a1 .topTrending-description{
     cursor: pointer;
     position:absolute;
     top: 0px;
@@ -62,19 +114,20 @@ body {
     transition:all 0.45s ease-in-out;
 }
 
-.listItem-a1 .blur{
+#listItem-a1 .blur{
     background-color: rgba(0,0,0,0.65);
-    height: 628px;
-    width: 937px;
+    height: 770px;
+    width: 1150px;
     z-index: 5;
+    border-radius: 1%;
     position: absolute;
 }
 
-.listItem-a1 .description-text h1,p{
+#listItem-a1 .description-text h1,p{
     text-transform: uppercase;
     font-size: 48px;
 }
-.listItem-a1 .description-text{
+#listItem-a1 .description-text{
     z-index: 10;
     color: white;
     height: 100px;
@@ -84,74 +137,3 @@ body {
     text-align: center;
 }
 
-/* Every result tile */
-.listItem-b1{
-    margin: 0px;
-    padding-top: 600px;
-    padding-bottom: 10px;
-}
-
-.listItem-b1 li{
-    margin: 5px;
-    float: left;
-    width: 400px;
-    position: absolute;
-    overflow: hidden;
-}
-
-.listItem-b1 li:hover .results-description{
-    opacity: 1;
-}
-
-.listItem-b1 li:hover img{
-    opacity: 1;
-    transform: scale(1.15,1.15);
-    -webkit-transform:scale(1.15,1.15);
-    -moz-transform:scale(1.15,1.15);
-    -ms-transform:scale(1.15,1.15);
-    -o-transform:scale(1.15,1.15);
-}
-.listItem-b1 img{
-    width: 100%;
-    height: auto;
-    z-index: 4;
-    -webkit-transition:all 0.25s ease-in-out;
-    -moz-transition:all 0.25s ease-in-out;
-    -o-transition:all 0.25s ease-in-out;
-    -ms-transition:all 0.25s ease-in-out;
-    transition:all 0.25s ease-in-out;
-}
-.listItem-b1 .result-description{
-    cursor: pointer;
-    position:absolute;
-    top: 1000px;
-    left: 0px;
-    opacity: 0;
-    -webkit-transition:all 0.45s ease-in-out;
-    -moz-transition:all 0.45s ease-in-out;
-    -o-transition:all 0.45s ease-in-out;
-    -ms-transition:all 0.45s ease-in-out;
-    transition:all 0.45s ease-in-out;
-}
-
-.listItem-b1 .blur{
-    background-color: rgba(0,0,0,0.65);
-    height: 270px;
-    width: 400px;
-    z-index: 5;
-    position: absolute;
-}
-
-.listItem-b1 .description-text h1,p{
-    text-transform: uppercase;
-    font-size: 24px;
-}
-.listItem-b1 .description-text{
-    z-index: 10;
-    color: white;
-    height: 100px;
-    width: 400px;
-    top:100px;
-    position: absolute;
-    text-align: center;
-}
