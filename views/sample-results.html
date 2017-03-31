@@ -9,49 +9,49 @@
 	    <meta name="description" content="A sample results page on parks taken from the Brisbane City Council.">
     </head>
     <body>
-        <!--Top-most header block-->
-        <div id="mini-header">
+        <!--Section 1 HEADER-->
+        <div id="page-container">
             <header>
-                <div class="wrapper">
-                    <div id="navigation">
-                        <a href="">Home</a>
-                        <a href="">Brisbane</a>
-                        <a href="">Searched Results</a>
-                    </div>
-                    <div id="search-bar-container">
-                        <h1>search-bar</h1>
-                    </div>
+                <div id="navbar">
+                    <ul class="navbar-item-container">
+                        <li class="navbar-item"><a class="navbar-link" href="./index.html">Home</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="./search.html">Search</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="./sample-results.html">Sample Results</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="./sample-item.html">Sample Item</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="./registration.html">Register</a></li>
+                    </ul>
                 </div>
+                <div id="page-header">
+                    <h1>Results</h1>  
+                </div> 
             </header>
-        </div>
-            <div id="content">
-                <article>
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="results-container">
-                                <a target="_blank" href="../resources/img/park-table.jpg"> 
-                                <img src="../resources/img/park-table.jpg" alt="stock-image01">
-                                </a>
-                                <div class="topTrending-description">
-                                <div class="blur">
-                                <div class="description-text">
-                                    <h1>Trending This Week</h1>
-                                    <p> The most popular parks in town this week </p>
-                                    <p> 9 Places</p>
-                                </div>
-                                </div>   
-                                </div>
+        <!--Section 2 CONTENT-->
+            <div id="page-container">
+                <div id="content">
+                    <div class="row">
+                        <!--ROW 1-->
+                        <div class="results-container">
+                            <a target="_blank" href="../resources/img/park-table.jpg"> 
+                            <img src="../resources/img/park-table.jpg" alt="stock-image01">
+                            </a>
+                            <div class="description">
+                            <div class="description-text">
+                                <h1>Trending This Week</h1>
+                                <p> The most popular parks in town this week </p>
+                                <p> 9 Places</p>
                             </div>
+                            </div>   
                         </div>
-                    </div>    
-                </article>
-            </div>
+                    </div>
+                </div> 
+            </div> 
         <footer>
-            <div class="wrapper">
-                <div id="footer">
-                    <p>footer</p>
-                </div>
-            </div>
+            <!--Section 3 Footer-->
+            <div id="footer">
+                <hr class="footer-separator">
+                <p>footer</p>
+            </div>   
         </footer> 
+        </div>        
     </body>
 </html>

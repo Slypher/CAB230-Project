@@ -1,75 +1,104 @@
-/* Main */
 
-body{
-    background-color: whitesmoke;
-    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+/* Changes to default HTML formatting */
+body {
+    font-family: Helvetica, Verdana, Geneva, Arial, sans-serif;
+    color: #292b2c;
+    background-color: #fff;
+}
+a {
+    color: #0275d8;
+    text-decoration: none;
+}
+p {
     margin: 0px;
+    text-align: center;
 }
-.mini-header{
-    height: 24px;
-    line-height: 23px;
-    background-color: #F3F3F3;
-    border-bottom: solid 1px #e7e7e6;
-    overflow: hidden;
-}
-.wrapper{
-    padding-left: 10px;
-    padding-right: 10px;
+
+#page-container {
+    width: 1200px;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
-    max-width: 1160px;
-}
-#navigation {
-    background-color: darkred;
 }
 
-#navigation a{
-    height: 20px;
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+/* Navbar CSS */
+#navbar {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.navbar-link {
+    margin-left: 4px;
+    margin-right: 4px;
     text-align: center;
-    font-size: 8pt;
-    color: white;
-    text-decoration: none;
-    
+    color: rgba(0, 0, 0, 0.7);
+}
+.navbar-link:hover {
+    color: rgba(0, 0, 0, 0.9);
+}
+.navbar-item-container {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+.navbar-item {
+    position: relative;
+    float: left;
 }
 
-#navigation a:hover {
-    text-decoration: underline;
-}
-#search-bar-container {
-    border: 3px dashed black;
-    height: 80px;
+/* Other CSS */
+#page-header {
     text-align: center;
-    background-color: red;
-    color: white;
+}
+#content {
+    padding: 16px;
+    background-color: #f5f5f5;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#footer {
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.footer-separator {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    color: #292b2c;
+    margin-bottom: 16px;
 }
 
-#search-bar-container h1 {
-    margin: 0px;
-    padding: 10px;
-}
+/* Content Tile Arrangment CSS*/
 .row{
     box-sizing: border-box;
-    border: 3px dashed black;
-    background-color: red;
     text-align: center;
     clear: both;
     height: auto;
 }
-
-
-.row:hover .topTrending-description{
-    opacity: 1;
+.results-container:hover img{
+    opacity: 0.6;
+    transform: scale(1.05,1.05);
+    -webkit-transform:scale(1.05,1.05);
+    -moz-transform:scale(1.05,1.05);
+    -ms-transform:scale(1.05,1.05);
+    -o-transform:scale(1.05,1.05);
 }
-.row:hover img{
-    opacity: 1;
-}
-.row img{
+
+.results-container img{
     width: 50%;
     height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
     z-index: 4;
     -webkit-transition:all 0.25s ease-in-out;
     -moz-transition:all 0.25s ease-in-out;
@@ -77,11 +106,14 @@ body{
     -ms-transition:all 0.25s ease-in-out;
     transition:all 0.25s ease-in-out;
 }
-.row .topTrending-description{
+.results-container:hover .description{
+    opacity: 1;
+}
+.results-container .description{
     cursor: pointer;
     position:absolute;
-    top: 108px;
-    left: 677px;
+    top: 60px;
+    left: 315px;
     opacity: 0;
     -webkit-transition:all 0.45s ease-in-out;
     -moz-transition:all 0.45s ease-in-out;
@@ -89,37 +121,17 @@ body{
     -ms-transition:all 0.45s ease-in-out;
     transition:all 0.45s ease-in-out;
 }
-
-.topTrending-description .blur{
-    background-color: rgba(0,0,0,0.65);
-    height: 380px;
-    width: 567px;
-    z-index: 5;
-    position: absolute;
-    
-}
-
-.row .description-text h1,p{
+.results-container .description-text{
     text-transform: uppercase;
-    font-size: 22px;
-    color: white;
-    text-decoration: none;
-    
-}
-.row .description-text{
+    font-size: 20px;
     z-index: 10;
+    color: black;
     height: 50px;
     width: 567px;
     top: 100px;
     position: absolute;
     text-align: center;
 }
-#footer {
-    border: 3px dashed black;
-    background-color: red;
-    text-align: center;
-    clear: both;
-    height: 50px;
-}
+
 
 
