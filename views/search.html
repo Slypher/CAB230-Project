@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Sample Item</title>
+        <title>Search</title>
         <link rel="stylesheet" href="../resources/css/default-stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="placeholder">
+        <script src="../resources/js/geolocation.js"></script>
     </head>
     <body>
         <div id="page-container">
@@ -16,8 +17,6 @@
                     <ul class="navbar-item-container">
                         <li class="navbar-item"><a class="navbar-link" href="./index.html">Home</a></li>
                         <li class="navbar-item"><a class="navbar-link" href="./search.html">Search</a></li>
-                        <li class="navbar-item"><a class="navbar-link" href="./sample-results.html">Sample Results</a></li>
-                        <li class="navbar-item"><a class="navbar-link" href="./sample-item.html">Sample Item</a></li>
                         <li class="navbar-item"><a class="navbar-link" href="./registration.html">Register</a></li>
                     </ul>
                 </div>
@@ -27,8 +26,20 @@
             </header>
             <!-- SECTION 2: Content -->
             <div id="content">
-                <p>The styling and content of this page is a work in progress.</p><br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar, libero in pellentesque tempor, risus velit molestie arcu, sit amet blandit sapien ante eget mi. Aliquam est nulla, maximus vitae mattis a, aliquam in eros. Pellentesque massa odio, bibendum vel justo id, volutpat dapibus ex. Morbi ut rhoncus ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In nec mollis sem. Morbi interdum lorem a est vulputate elementum. Pellentesque nec vestibulum urna. Curabitur fringilla luctus maximus. Suspendisse nec ante sed mi faucibus pharetra id ac neque. Sed elit metus, pulvinar sit amet turpis sed, gravida malesuada ipsum. Proin et risus ac diam bibendum molestie. Nulla sed ultricies elit, eget mollis lacus.</p>
+                <form action="./sample-results.html">
+                    <!-- TODO: style the form -->
+                    <!-- Unsure about rating - the dataset does not have any column for park rating -->
+                    <select>
+                        <option value="">suburb1</option>
+                        <option value="">suburb2</option>
+                        <option value="">suburb3</option>
+                        <option value="">suburb4</option>
+                    </select><br>
+                    <input type="text" name="name" placeholder="Name" required></input><br>
+                    <input type="text" name="rating" placeholder="Rating ???" required></input><br>
+                    <button onclick="getLocation()">Get my Location</button>
+                    <input type="submit" value="Search" />
+                </form>
             </div>
             <!-- SECTION 3: Footer -->
             <footer id="footer">
