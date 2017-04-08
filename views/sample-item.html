@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sample Item</title>
-        <link rel="stylesheet" href="../resources/css/default-stylesheet.css">
+        <link rel="stylesheet" href="../resources/css/sample-item.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="placeholder">
@@ -25,8 +25,26 @@
             </header>
             <!-- SECTION 2: Content -->
             <div id="content">
-                <p>The styling and content of this page is a work in progress.</p><br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar, libero in pellentesque tempor, risus velit molestie arcu, sit amet blandit sapien ante eget mi. Aliquam est nulla, maximus vitae mattis a, aliquam in eros. Pellentesque massa odio, bibendum vel justo id, volutpat dapibus ex. Morbi ut rhoncus ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In nec mollis sem. Morbi interdum lorem a est vulputate elementum. Pellentesque nec vestibulum urna. Curabitur fringilla luctus maximus. Suspendisse nec ante sed mi faucibus pharetra id ac neque. Sed elit metus, pulvinar sit amet turpis sed, gravida malesuada ipsum. Proin et risus ac diam bibendum molestie. Nulla sed ultricies elit, eget mollis lacus.</p>
+                <div class="row">
+                    <div id="results-container">
+                        <div class="slider-container">
+                            <img class="slides" src="../resources/img/sample-item-1-img.jpg" alt="sample-image01">
+                            <img class="slides" src="../resources/img/sample-item-2-img.jpg" alt="sample-image02">
+                            <img class="slides" src="../resources/img/sample-item-3-img.jpg" alt="sample-image03">
+                            <img class="slides" src="../resources/img/sample-item-4-img.jpg" alt="sample-image04">
+                            
+                            <button class="black-button-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                            <button class="black-button-display-right" onclick="plusDivs(1)">&#10095;</button>
+                        </div>
+                        <div id="description">
+                        <div id="description-text">
+                            <h1>7th Brigade Park</h1>
+                            <h2> Chermside </h2>
+                            <p> While this park boasts one of the northside's largest fort-like playgrounds (known as Kidspace), an exploration of the expansive 7th Brigade Park reveals it has much more to offer. The Downfall Creek Bikeway runs through the park making this one a very popular track for runners and bike riders. The park also has a rebound wall, half-court basketball court, and a couple of cricket pitches on the ovals for those looking for some organised sport. There are many great spots for a picnic or BBQ throughout the park, and also a dog off-leash area which is popular with the locals.</p>
+                        </div>
+                        </div>   
+                    </div>
+                </div>
             </div>
             <!-- SECTION 3: Footer -->
             <footer id="footer">
@@ -34,5 +52,24 @@
                 <p>This is a footer</p>
             </footer>
         </div>
+        <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("slides");
+          if (n > x.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = x.length}
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+        }
+        </script>
     </body>
 </html>
