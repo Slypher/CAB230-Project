@@ -76,6 +76,24 @@ p {
     padding-top: 10px;
     padding-bottom: 40px;
 }
+
+.button-left {
+    background-color: lightgrey;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button-right {
+    background-color: lightgrey;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 /*Footer*/
     
 #footer {

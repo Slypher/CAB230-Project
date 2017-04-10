@@ -29,12 +29,11 @@
                     <div id="results-container">
                         <div class="slider-container">
                             <img class="slides" src="../resources/img/sample-item-1-img.jpg" alt="sample-image01">
-                            <img class="slides" src="../resources/img/sample-item-2-img.jpg" alt="sample-image02">
-                            <img class="slides" src="../resources/img/sample-item-3-img.jpg" alt="sample-image03">
-                            <img class="slides" src="../resources/img/sample-item-4-img.jpg" alt="sample-image04">
+                            <img class="slides" src="../resources/img/sample-item-3-img.jpg" alt="sample-image02">
+                            <img class="slides" src="../resources/img/sample-item-4-img.jpg" alt="sample-image03">
                             
-                            <button class="black-button-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                            <button class="black-button-display-right" onclick="plusDivs(1)">&#10095;</button>
+                            <button class="button-left" onclick="plusDivs(-1)">&#10094;</button>
+                            <button class="button-right" onclick="plusDivs(1)">&#10095;</button>
                         </div>
                         <div id="description">
                         <div id="description-text">
@@ -52,14 +51,13 @@
                 <p>This is a footer</p>
             </footer>
         </div>
+        <!--JAVASCRIPT FOR SLIDER-->
         <script>
         var slideIndex = 1;
         showDivs(slideIndex);
-
         function plusDivs(n) {
           showDivs(slideIndex += n);
         }
-
         function showDivs(n) {
           var i;
           var x = document.getElementsByClassName("slides");
