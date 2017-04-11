@@ -10,7 +10,7 @@ a {
     text-decoration: none;
 }
 p {
-    margin: 0px;
+    margin: 20px;
 }
 
 #page-container {
@@ -68,7 +68,12 @@ p {
     height:auto;
 }
 
-/*Main*/
+/*Main Image*/
+.slider-container{
+    width: 75%
+    height: auto;
+}
+
 .slider-container img{
     width: 75%;
     height: auto;
@@ -76,24 +81,38 @@ p {
     padding-top: 10px;
     padding-bottom: 40px;
 }
+/*Buttons*/
 
 .button-left {
-    background-color: lightgrey;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    margin: 4px 2px;
+    background-color: transparent;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 164px;
+    border: none;
+    color: white;
+    padding: 32px 32px;
+    margin: 4px 2px;
+    font-size: 18px;
+    font-weight:bold;
 }
 
 .button-right {
-    background-color: lightgrey;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    margin: 4px 2px;
+    background-color: transparent;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 154px;
+    border: none;
+    color: white;
+    padding: 32px 32px;
+    margin: 4px 2px;
+    font-size: 18px;
+    font-weight:bold;
 }
+
+/*Comment Section*/
+
 /*Footer*/
     
 #footer {
