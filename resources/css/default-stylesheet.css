@@ -1,24 +1,43 @@
+/* This CSS file represents the default
+ * formatting for all pages on this website */
 
-/* Changes to default HTML formatting */
+/* Any changes to one particular page will be included in a
+ * separate CSS file, typically (PAGE-NAME).css */
+ 
 body {
+    /* Set the default font for the website.
+     * The browser goes through the list one font at a time,
+     * until a font is found that browser can display. */
     font-family: Helvetica, Verdana, Geneva, Arial, sans-serif;
     color: #292b2c;
     background-color: #fff;
 }
-a {
+a { /* This represents any hyperlinks, contained inside the <a></a> tag. */
     color: #0275d8;
-    text-decoration: none;
+    text-decoration: none; /* Do not underline */
 }
-p {
+p { /* This represents any paragraphs, contained inside the <p></p> tag. */
     margin: 0px;
 }
-
 #page-container {
     width: 1200px;
+
+    /* The following lines of CSS allows the page to center
+     * the container using the left and right margins */
     position: relative;
     margin-left: auto;
     margin-right: auto;
 }
+#page-header {
+    text-align: center;
+}
+#content {
+    padding: 16px;
+    background-color: #f5f5f5;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
 
 /* Navbar CSS */
 #navbar {
@@ -30,6 +49,13 @@ p {
     padding-bottom: 8px;
     padding-left: 16px;
     padding-right: 16px;
+    width: 800px;
+
+    /* The following lines of CSS allows the page to center
+     * the container using the left and right margins */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 .navbar-link {
     margin-left: 4px;
@@ -37,30 +63,23 @@ p {
     text-align: center;
     color: rgba(0, 0, 0, 0.7);
 }
-.navbar-link:hover {
+.navbar-link:hover { /* This CSS is used when a user hovers over a navbar-link element */
     color: rgba(0, 0, 0, 0.9);
 }
 .navbar-item-container {
     margin: 0;
     padding: 0;
-    list-style: none;
-    overflow: hidden;
+    list-style: none; /* Remove bullet points from unordered list */
+    overflow: hidden; /* Do not allow unordered list to overflow from parent container */
 }
 .navbar-item {
     position: relative;
     float: left;
 }
+/* End Navbar CSS */
 
-/* Other CSS */
-#page-header {
-    text-align: center;
-}
-#content {
-    padding: 16px;
-    background-color: #f5f5f5;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
+
+/* Footer CSS */
 #footer {
     padding-bottom: 16px;
     padding-left: 32px;
@@ -71,8 +90,8 @@ p {
 }
 .footer-separator {
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 16px;
     width: 100%;
     color: #292b2c;
-    margin-bottom: 16px;
 }
+/* End Footer CSS */
