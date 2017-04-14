@@ -4,7 +4,7 @@
 /* Page Container CSS */
 /* This will override the width set by default-stylesheet.css */
 #page-container {
-    width: 600px;
+    width: 500px;
 }
 
 #registration-form {
