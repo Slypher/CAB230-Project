@@ -18,6 +18,7 @@ a { /* This represents any hyperlinks, contained inside the <a></a> tag. */
 }
 p { /* This represents any paragraphs, contained inside the <p></p> tag. */
     margin: 0px;
+    margin-bottom: 6px;
 }
 #page-container {
     width: 1200px;
