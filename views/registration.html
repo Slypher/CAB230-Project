@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="placeholder">
+        <script src="../resources/js/validate_registration.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
@@ -28,11 +29,7 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./index.html" id="registration-form">
-                    <!-- TODO: style the form -->
-                    <!-- TODO: use javascript validation -->
-                    <!-- TODO: add labels to each option instead of placeholders -->
-                    <!-- Unsure what to do with the checkboxes or the number picker -->
+                <form action="./index.html" id="registration-form" onsubmit="return validate();">
                     <input type="email" name="email" placeholder="Email" required></input><br>
                     <input type="text" name="username" placeholder="Username" required></input><br>
                     <input type="password" name="password" placeholder="Password" required></input><br>
