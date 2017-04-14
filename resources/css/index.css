@@ -1,0 +1,8 @@
+/* This CSS file represents the formatting
+ * for ONE page, the index.html page. */
+
+/* Page Container CSS */
+/* This will override the width set by default-stylesheet.css */
+#page-container {
+    width: 700px;
+}
