@@ -4,7 +4,7 @@
 /* Page Container CSS */
 /* This will override the width set by default-stylesheet.css */
 #page-container {
-    width: 1200px;
+    width: 800px;
 }
 
 /* Other CSS */
@@ -19,14 +19,27 @@
 .slider-container{
     width: 75%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .slider-container img{
-    width: 75%;
+    width: 100%;
     height: auto;
-    margin-left: 150px;
     padding-top: 10px;
     padding-bottom: 40px;
+}
+
+#slide1 { /* Initially display this image in the slideshow */
+    display: block;
+}
+
+#slide2 { /* Initially hide this image in the slideshow */
+    display: none;
+}
+
+#slide3 { /* Initially hide this image in the slideshow */
+    display: none;
 }
 
 /* Buttons */
