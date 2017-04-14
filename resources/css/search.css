@@ -6,3 +6,37 @@
 #page-container {
     width: 600px;
 }
+
+#search-form {
+    text-align: center;
+}
+
+.name-field {
+    margin-bottom: 6px;
+}
+
+.suburb-picker {
+    margin-bottom: 6px;
+    padding: 1px;
+    border-width: 1px;
+    border-radius: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    height: 19px;
+    font: 12px Arial;
+}
+
+.suburb-picker #default {
+    color:gray;
+}
+
+.rating-picker {
+    padding: 1px;
+    border-width: 1px;
+    border-radius: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    width: 54px;
+    height: 15px;
+    text-align: right;
+}
