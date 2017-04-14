@@ -38,7 +38,19 @@ p { /* This represents any paragraphs, contained inside the <p></p> tag. */
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
-
+.error-message {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+}
+.error {
+    display: none;
+}
 
 /* Navbar CSS */
 #navbar {
