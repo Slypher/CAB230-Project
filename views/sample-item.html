@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="placeholder">
+        <script src="../resources/js/slider.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
@@ -69,23 +70,5 @@
                 <p><i class="fa fa-font-awesome"></i> Icons by <a href="http://fontawesome.io">Font Awesome</a></p>
             </footer>
         </div>
-        <!--JAVASCRIPT FOR SLIDER-->
-        <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
-        function plusDivs(n) {
-          showDivs(slideIndex += n);
-        }
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("slides");
-          if (n > x.length) {slideIndex = 1}    
-          if (n < 1) {slideIndex = x.length}
-          for (i = 0; i < x.length; i++) {
-             x[i].style.display = "none";  
-          }
-          x[slideIndex-1].style.display = "block";  
-        }
-        </script>
     </body>
 </html>
