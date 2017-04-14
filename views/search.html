@@ -38,8 +38,8 @@
                 </div>
                 <form action="./sample-results.html" id="search-form" onsubmit="return validate();">
                     <input type="text" class="name-field" name="name" placeholder="Name of Park" onchange="resetError();"></input><br>
-                    <select class="suburb-picker" name="suburb">
-                        <option value="default" id="default" onchange="resetError();" disabled selected>Select a Suburb</option>
+                    <select class="suburb-picker" name="suburb" onchange="resetError();">
+                        <option value="default" id="default" disabled selected>Select a Suburb</option>
                         <option value="1">Example Suburb</option>
                         <option value="2">Example Suburb</option>
                         <option value="3">Example Suburb</option>
