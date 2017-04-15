@@ -4,7 +4,7 @@
 /* Page Container CSS */
 /* This will override the width set by default-stylesheet.css */
 #page-container {
-    width: 800px;
+    width: 850px;
 }
 
 /* Other CSS */
@@ -44,29 +44,27 @@
 
 /* Buttons */
 .button-left {
-    background-color: transparent;
+    background-color: black;
     cursor: pointer;
     position: absolute;
-    top: 23%;
+    top: 26%;
     left: 105px;
     border: none;
+    padding-bottom: 4px;
     color: white;
-    padding: 32px 32px;
-    margin: 4px 2px;
     font-size: 23px;
     font-weight:bold;
 }
 
 .button-right {
-    background-color: transparent;
+    background-color: black;
     cursor: pointer;
     position: absolute;
-    top: 23%;
+    top: 26%;
     right: 105px;
     border: none;
+    padding-bottom: 4px;
     color: white;
-    padding: 32px 32px;
-    margin: 4px 2px;
     font-size: 24px;
     font-weight:bold;
 }
