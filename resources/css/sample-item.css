@@ -27,7 +27,7 @@
     width: 100%;
     height: auto;
     padding-top: 10px;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
 }
 
 #slide1 { /* Initially display this image in the slideshow */
@@ -47,13 +47,13 @@
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    top: 36%;
-    left: 164px;
+    top: 23%;
+    left: 105px;
     border: none;
     color: white;
     padding: 32px 32px;
     margin: 4px 2px;
-    font-size: 36px;
+    font-size: 23px;
     font-weight:bold;
 }
 
@@ -61,16 +61,28 @@
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    top: 36%;
-    right: 154px;
+    top: 23%;
+    right: 105px;
     border: none;
     color: white;
     padding: 32px 32px;
     margin: 4px 2px;
-    font-size: 36px;
+    font-size: 24px;
     font-weight:bold;
 }
 
 /*Description Section*/
 
-/* Comment Section */
+#description{
+    text-align: left;
+    width: 770px;
+}
+.description-text li{
+    margin: 10px;
+}
+
+#img-desc{
+    text-align: center;
+}
+
+
