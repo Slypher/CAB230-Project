@@ -12,17 +12,12 @@
 }
 
 .name-field {
-    margin-bottom: 6px;
+    width: 190px;
+    margin-bottom: 8px;
 }
 
 .suburb-picker {
     margin-bottom: 6px;
-    padding: 1px;
-    border-width: 1px;
-    border-radius: 1px;
-    border-style: solid;
-    border-color: rgb(169, 169, 169);
-    height: 19px;
     font: 12px Arial;
 }
 

@@ -10,12 +10,16 @@ function validate() {
         document.getElementsByClassName('other-radio')[0])
         && valid)
     valid = (checkTermsAndConditions(document.getElementsByClassName('agree-checkbox')[0]) && valid)
-    return false
+    return valid;
 }
 
 // Check 'email-field' input
 function checkEmail(element) {
-    //if (element.value == "") return showError('')
+    var splitWithAt = element.value.split('@')
+    if (element.value == "") return showError('email-error')
+    if (splitWithAt.length != 2
+        || splitWithAt[1].split('.').length < 2
+        || splitWithAt[1].split('.')[1].length == 0) showError('email-invalid-error')
     return true
 }
 
