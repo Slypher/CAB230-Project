@@ -17,9 +17,15 @@
 }
 .row {
     clear: both;
-    overflow:hidden;
+    overflow: hidden;
     margin-top: 10px;
     margin-bottom: 55px;
+}
+#bottom-row {
+    clear:both;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Top Trending Tile CSS */
@@ -27,19 +33,21 @@
     display:inline-block;
     width: 50%;
 }
-#results-container:hover img{
+#results-container:hover img {
     opacity: 0.6;
     transform: scale(1.05,1.05);
+    border-radius: 6px;
 }
-#results-container img{
+#results-container img {
     width: 100%;
     height: auto;
     transition:all 0.25s ease-in-out;
+    border-radius: 12px;
 }
-#results-container:hover #description{
+#results-container:hover #description {
     opacity: 1;
 }
-#results-container #description{
+#results-container #description {
     /* Transition CSS */
     cursor: pointer;
     position: absolute;
@@ -64,19 +72,26 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-.results-container-small:hover img{
+.results-url-small {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    display: block;
+}
+.results-url-small:hover img {
     opacity: 0.6;
     transform: scale(1.05,1.05);
+    border-radius: 4px;
+}
+.results-url-small:hover .results-description-small {
+    opacity: 1;
 }
 .results-container-small img{
     width: 100%;
     height: auto;
     transition:all 0.25s ease-in-out;
+    border-radius: 8px;
 }
-.results-container-small:hover .description-small{
-    opacity: 1;
-}
-.results-container-small .description-small{
+.results-container-small .results-description-small {
     /* Transition CSS */
     cursor: pointer;
     opacity: 0;
