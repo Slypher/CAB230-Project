@@ -11,6 +11,10 @@
 }
 
 /* Other CSS */
+#top-row {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
 .row {
     clear: both;
     overflow:hidden;
@@ -22,8 +26,6 @@
 #results-container {
     display:inline-block;
     width: 50%;
-    margin-top: 10px;
-    margin-bottom: 40px;
 }
 #results-container:hover img{
     opacity: 0.6;
