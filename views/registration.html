@@ -29,17 +29,27 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./index.html" id="registration-form" onsubmit="return validate();">
-                    <input type="email" name="email" placeholder="Email" required></input><br>
-                    <input type="text" name="username" placeholder="Username" required></input><br>
-                    <input type="password" name="password" placeholder="Password" required></input><br>
-                    <input type="radio" name="gender" value="male" checked> Male<br>
-                    <input type="radio" name="gender" value="female"> Female<br>
-                    <input type="radio" name="gender" value="other"> Other<br>
-                    <input type="checkbox" name="op1" value="op1"> Option1<br>
-                    <input type="checkbox" name="op2" value="op2"> Option2<br>
-                    <input type="date" name="birth"><br>
-                    <input type="number" name="" min="1" max="10" placeholder="??"><br>
+                <div class="error-message">
+                    <span class="error username-short-error"><span class="fa fa-exclamation-triangle"></span> Please choose a username with <strong>5 or more</strong> characters<br></span>
+                    <span class="error username-long-error"><span class="fa fa-exclamation-triangle"></span> Please choose a username with <strong>16 or fewer</strong> characters<br></span>
+                    <span class="error password-short-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>5 or more</strong> characters<br></span>
+                    <span class="error password-long-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>22 or fewer</strong> characters<br></span>
+                    <span class="error password-number-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>2 or more</strong> numbers<br></span>
+                    <span class="error gender-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>select a gender</strong><br></span>
+                    <span class="age-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>select a date of birth</strong><br></span>
+                    <span class="age-young-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>before 2010</strong><br></span>
+                    <span class="age-old-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>after 1917</strong><br></span>
+                    <span class="agree-error"><span class="fa fa-exclamation-triangle"></span> You must agree to our <strong>Terms and Conditions</strong><br></span>
+                </div>
+                <form action="./index.html" id="registration-form" onsubmit="return validate();" onchange="resetError();">
+                    <input type="email" class="email-field" name="email" placeholder="Email" onclick="resetError();"></input><br>
+                    <input type="text" class="username-field" name="username" placeholder="Username" onclick="resetError();"></input><br>
+                    <input type="password" class="password-field" name="password" placeholder="Password" onclick="resetError();"></input><br>
+                    <input type="date" class="birth-picker" name="birth" onclick="resetError();"><br>
+                    <input type="radio" class="male-radio" name="gender" value="male" onclick="resetError();"> Male
+                    <input type="radio" class="female-radio" name="gender" value="female" onclick="resetError();"> Female
+                    <input type="radio" class="other-radio" name="gender" value="other" onclick="resetError();"> Other<br>
+                    <input type="checkbox" class="agree-checkbox" name="agree" onclick="resetError();"> I agree to the <a href="">Terms and Conditions</a><br>
                     <input type="submit" value="Register" />
                 </form>
             </div>
