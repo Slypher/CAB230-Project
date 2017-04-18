@@ -9,13 +9,11 @@
 
 /* Other CSS */
 #top-row{
-    box-sizing: border-box;
     text-align: center;
     clear: both;
     height:auto;
 }
 .row {
-    box-sizing: border-box;
     text-align: center;
     clear: both;
     height:300px;
@@ -25,22 +23,13 @@
 #results-container:hover img{
     opacity: 0.6;
     transform: scale(1.05,1.05);
-    -webkit-transform:scale(1.05,1.05);
-    -moz-transform:scale(1.05,1.05);
-    -ms-transform:scale(1.05,1.05);
-    -o-transform:scale(1.05,1.05);
 }
-
 #results-container img{
     width: 50%;
     height: auto;
     padding-top: 10px;
     padding-bottom: 40px;
     z-index: 4;
-    -webkit-transition:all 0.25s ease-in-out;
-    -moz-transition:all 0.25s ease-in-out;
-    -o-transition:all 0.25s ease-in-out;
-    -ms-transition:all 0.25s ease-in-out;
     transition:all 0.25s ease-in-out;
 }
 #results-container:hover #description{
@@ -52,10 +41,6 @@
     top: 110px;
     left: 315px;
     opacity: 0;
-    -webkit-transition:all 0.45s ease-in-out;
-    -moz-transition:all 0.45s ease-in-out;
-    -o-transition:all 0.45s ease-in-out;
-    -ms-transition:all 0.45s ease-in-out;
     transition:all 0.45s ease-in-out;
 }
 #results-container #description-text{ /* description text style CSS */
@@ -69,16 +54,12 @@
     position: absolute;
     text-align: center;
 }
+
 /* Sample Results CSS */
 .results-container-sample:hover img{
     opacity: 0.6;
     transform: scale(1.05,1.05);
-    -webkit-transform:scale(1.05,1.05);
-    -moz-transform:scale(1.05,1.05);
-    -ms-transform:scale(1.05,1.05);
-    -o-transform:scale(1.05,1.05);
 }
-
 .results-container-sample img{
     float: left; 
     width: 30%;
@@ -87,10 +68,6 @@
     margin: 0 0 25px 30px;
     height: auto;
     z-index: 4;
-    -webkit-transition:all 0.25s ease-in-out;
-    -moz-transition:all 0.25s ease-in-out;
-    -o-transition:all 0.25s ease-in-out;
-    -ms-transition:all 0.25s ease-in-out;
     transition:all 0.25s ease-in-out;
 }
 .results-container-sample:hover .description-sample{
@@ -100,10 +77,6 @@
     cursor: pointer;
     position:absolute;
     opacity: 0;
-    -webkit-transition:all 0.45s ease-in-out;
-    -moz-transition:all 0.45s ease-in-out;
-    -o-transition:all 0.45s ease-in-out;
-    -ms-transition:all 0.45s ease-in-out;
     transition:all 0.45s ease-in-out;
 }
 .results-container-sample .description-text-sample{

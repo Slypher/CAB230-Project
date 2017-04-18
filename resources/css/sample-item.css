@@ -6,13 +6,8 @@
 #page-container {
     width: 850px;
 }
-
-/* Other CSS */
-.row{
-    box-sizing: border-box;
+#content{
     text-align: center;
-    clear: both;
-    height:auto;
 }
 
 /* Main Image */
@@ -22,22 +17,18 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 .slider-container img{
     width: 100%;
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 #slide1 { /* Initially display this image in the slideshow */
     display: block;
 }
-
 #slide2 { /* Initially hide this image in the slideshow */
     display: none;
 }
-
 #slide3 { /* Initially hide this image in the slideshow */
     display: none;
 }
@@ -55,7 +46,6 @@
     font-size: 23px;
     font-weight:bold;
 }
-
 .button-right {
     background-color: black;
     cursor: pointer;
@@ -70,15 +60,12 @@
 }
 
 /*Description Section*/
-
 #description{
     text-align: left;
-    width: 770px;
 }
 .description-text li{
     margin: 10px;
 }
-
 #img-desc{
     text-align: center;
 }
