@@ -1,20 +1,24 @@
+// Entrypoint function called once form is submitted
 function validate() {
     var valid = true;
     valid = (checkSomething(document.getElementsByClassName('')[0]) && valid)
     return valid;
 }
 
+// Check 'x' input
 function checkSomething(element) { // TODO
     if (element.value == "") return showError('');
     return true;
 }
 
+// Function called to modify CSS properties to display a particular error
 function showError(errorName) {
     document.getElementsByClassName('error-message')[0].style.display = 'block';
     document.getElementsByClassName(errorName)[0].style.display = 'inline';
     return false;
 }
 
+// Function resets all errors, called when any input is modified
 function resetError() {
     errorMessageContainer = document.getElementsByClassName('error-message')[0]
     errorMessageContainer.style.display = 'none';
