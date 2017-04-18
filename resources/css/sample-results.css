@@ -6,87 +6,84 @@
 #page-container {
     width: 1200px;
 }
+#content {
+    text-align: center;
+}
 
 /* Other CSS */
-#top-row{
-    text-align: center;
-    clear: both;
-    height:auto;
-}
 .row {
-    text-align: center;
     clear: both;
-    height:300px;
+    overflow:hidden;
 }
 
 /* Top Trending Tile CSS */
+#results-container {
+    display:inline-block;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
 #results-container:hover img{
     opacity: 0.6;
     transform: scale(1.05,1.05);
 }
 #results-container img{
-    width: 50%;
+    width: 100%;
     height: auto;
-    padding-top: 10px;
-    padding-bottom: 40px;
-    z-index: 4;
     transition:all 0.25s ease-in-out;
 }
 #results-container:hover #description{
     opacity: 1;
 }
-#results-container #description{ /* description transistion and position CSS */
+#results-container #description{
+    /* Transition CSS */
     cursor: pointer;
-    position:absolute;
-    top: 110px;
+    position: absolute;
+    top: 130px;
     left: 315px;
     opacity: 0;
     transition:all 0.45s ease-in-out;
-}
-#results-container #description-text{ /* description text style CSS */
+
+    /* Text CSS */
     text-transform: uppercase;
     font-size: 20px;
-    z-index: 10;
     color: #373D3F;
     height: 50px;
     width: 567px;
-    top: 30px;
-    position: absolute;
     text-align: center;
 }
 
 /* Sample Results CSS */
-.results-container-sample:hover img{
+.results-container-small {
+    float: left;
+    width: 29.3%;
+    margin: 10px 2% 55px 2%;
+}
+.results-container-small:hover img{
     opacity: 0.6;
     transform: scale(1.05,1.05);
 }
-.results-container-sample img{
-    float: left; 
-    width: 30%;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    margin: 0 0 25px 30px;
+.results-container-small img{
+    width: 100%;
     height: auto;
-    z-index: 4;
     transition:all 0.25s ease-in-out;
 }
-.results-container-sample:hover .description-sample{
+.results-container-small:hover .description-small{
     opacity: 1;
 }
-.results-container-sample .description-sample{
+.results-container-small .description-small{
+    /* Transition CSS */
     cursor: pointer;
-    position:absolute;
     opacity: 0;
     transition:all 0.45s ease-in-out;
-}
-.results-container-sample .description-text-sample{
     text-transform: uppercase;
-    font-size: 14px;
-    z-index: 10;
+
+    /* Text CSS */
+    font-size: 16px;
     color: #373D3F;
     height: 50px;
     width: 380px;
-    top: 70px;
     position: absolute;
     text-align: center;
+    transform: translate(-4%, -175px);
 }
