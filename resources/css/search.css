@@ -6,25 +6,24 @@
 #page-container {
     width: 500px;
 }
+#content {
+    text-align: center;
+}
 
 #search-form {
     text-align: center;
 }
-
 .name-field {
     width: 190px;
     margin-bottom: 8px;
 }
-
 .suburb-picker {
     margin-bottom: 6px;
     font: 12px Arial;
 }
-
 .suburb-picker #default {
     color:gray;
 }
-
 .rating-picker {
     padding: 1px;
     border-width: 1px;

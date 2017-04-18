@@ -6,6 +6,9 @@
 #page-container {
     width: 500px;
 }
+#content {
+    text-align: center;
+}
 
 #registration-form {
     text-align: center;
@@ -30,7 +33,7 @@
 }
 #radio-container {
     margin-left: 6px;
-    padding-top: 4px;
+    padding-top: 2px;
 }
 .agree-checkbox {
     margin-bottom: 14px;

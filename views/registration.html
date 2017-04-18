@@ -32,26 +32,26 @@
                 <form action="./index.html" id="registration-form" onsubmit="return validate();" onchange="resetError();">
                     <div id="form-float-container">
                         <div id="form-label-column">
-                            <label><strong>Email Address: </strong></label><br>
-                            <label><strong>Username: </strong></label><br>
-                            <label><strong>Password: </strong></label><br>
-                            <label><strong>Date of Birth: </strong></label><br>
+                            <label for="email-field"><strong>Email Address: </strong></label><br>
+                            <label for="username-field"><strong>Username: </strong></label><br>
+                            <label for="password-field"><strong>Password: </strong></label><br>
+                            <label for="birth-picker"><strong>Date of Birth: </strong></label><br>
                             <label><strong>Gender: </strong></label>
                         </div>
                         <div id="form-input-column">
-                            <input type="text" class="email-field textfield" name="email" onclick="resetError();"><br>
-                            <input type="text" class="username-field textfield" name="username" onclick="resetError();"><br>
-                            <input type="password" class="password-field textfield" name="password" onclick="resetError();"><br>
-                            <input type="date" class="birth-picker" name="birth" onclick="resetError();"><br>
+                            <input type="text" class="email-field" id="email-field" name="email" onclick="resetError();"><br>
+                            <input type="text" class="username-field" id="username-field" name="username" onclick="resetError();"><br>
+                            <input type="password" class="password-field" id="password-field" name="password" onclick="resetError();"><br>
+                            <input type="date" class="birth-picker" id="birth-picker" name="birth" onclick="resetError();"><br>
                             <div id="radio-container">
-                                <input type="radio" class="male-radio" name="gender" value="male" onclick="resetError();"><span>Male</span>
-                                <input type="radio" class="female-radio" name="gender" value="female" onclick="resetError();"><span>Female</span>
-                                <input type="radio" class="other-radio" name="gender" value="other" onclick="resetError();"><span>Other</span><br>
+                                <input type="radio" class="male-radio" id="male-radio" name="gender" value="male" onclick="resetError();"><label for="male-radio">Male</label>
+                                <input type="radio" class="female-radio" id="female-radio" name="gender" value="female" onclick="resetError();"><label for="female-radio">Female</label>
+                                <input type="radio" class="other-radio" id="other-radio" name="gender" value="other" onclick="resetError();"><label for="other-radio">Other</label><br>
                             </div>
                         </div>
                     </div>
                     <div id="form-submit-container">
-                        <input type="checkbox" class="agree-checkbox" name="agree" value="true" onclick="resetError();"> I agree to the <a href="">Terms and Conditions</a><br>
+                        <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();"><label for="agree-checkbox"> I agree to the <a href="">Terms and Conditions</a></label><br>
                         <input type="submit" value="Register" />
                     </div>
                     <div class="error-message">
@@ -63,10 +63,10 @@
                         <span class="error password-long-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>22 or fewer</strong> characters<br></span>
                         <span class="error password-number-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>2 or more</strong> numbers<br></span>
                         <span class="error gender-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>select a gender</strong><br></span>
-                        <span class="age-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>select a date of birth</strong><br></span>
-                        <span class="age-young-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>before 2010</strong><br></span>
-                        <span class="age-old-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>after 1917</strong><br></span>
-                        <span class="agree-error"><span class="fa fa-exclamation-triangle"></span> You must agree to our <strong>Terms and Conditions</strong><br></span>
+                        <span class="error age-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>select a date of birth</strong><br></span>
+                        <span class="error age-young-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>before 2010</strong><br></span>
+                        <span class="error age-old-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>after 1917</strong><br></span>
+                        <span class="error agree-error"><span class="fa fa-exclamation-triangle"></span> You must agree to our <strong>Terms and Conditions</strong><br></span>
                     </div>
                 </form>
             </div>

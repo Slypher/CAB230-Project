@@ -15,11 +15,13 @@ function validate() {
 
 // Check 'email-field' input
 function checkEmail(element) {
-    var splitWithAt = element.value.split('@')
     if (element.value == "") return showError('email-error')
-    if (splitWithAt.length != 2
-        || splitWithAt[1].split('.').length < 2
-        || splitWithAt[1].split('.')[1].length == 0) showError('email-invalid-error')
+
+    var splitWithAt = element.value.split('@')
+    if (splitWithAt.length != 2) return showError('email-invalid-error')
+
+    var splitWithDot = splitWithAt[1].split('.')
+    if (splitWithDot.length < 2 || splitWithDot[1].length == 0) return showError('email-invalid-error')
     return true
 }
 
@@ -61,7 +63,7 @@ function checkTermsAndConditions(element) {
 
 // Function called to modify CSS properties to display a particular error
 function showError(errorName) {
-    document.getElementsByClassName('error-message')[0].style.display = 'block'
+    document.getElementsByClassName('error-message')[0].style.display = 'inline-block'
     document.getElementsByClassName(errorName)[0].style.display = 'inline'
     return false
 }
