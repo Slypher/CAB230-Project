@@ -1,28 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../resources/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../resources/css/default-stylesheet.css">
-        <link rel="stylesheet" href="../resources/css/search.css">
-        <link rel="icon" href="../resources/img/favicon.ico" type="image/x-icon">
+        <?php include 'head.php' ?>
         <title>Search</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="placeholder">
+        <link rel="stylesheet" href="../resources/css/search.css">
         <script src="../resources/js/geolocation.js"></script>
         <script src="../resources/js/validate_search.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
         <header>
-            <div id="navbar">
-                <ul class="navbar-item-container">
-                    <li class="navbar-item"><a class="navbar-link" href="./index.html"><span class="fa fa-home"></span> Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="./search.html"><span class="fa fa-search"></span> Search</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="./registration.html"><span class="fa fa-user-plus"></span> Register</a></li>
-                </ul>
-            </div>
+            <?php include 'navbar.php' ?>
             <div id="page-header">
                 <h1><span class="fa fa-search"></span> Search</h1>
             </div>
@@ -30,7 +19,7 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./sample-results.html" id="search-form" onsubmit="return validate();">
+                <form action="./sample-results.php" id="search-form" onsubmit="return validate();">
                     <input type="text" class="name-field" name="name" placeholder="Name of Park" onchange="resetError();"><br>
                     <select class="suburb-picker" name="suburb" onchange="resetError();">
                         <option value="default" id="default" disabled selected>Select a Suburb</option>
@@ -50,11 +39,7 @@
                 </div>
             </div>
             <!-- SECTION 3: Footer -->
-            <footer id="footer">
-                <hr class="footer-separator">
-                <p><span class="fa fa-users"></span> Website by Connor Gillespie and Hugh Duong-Tran-Tien</p>
-                <p><span class="fa fa-font-awesome"></span> Icons by <a href="http://fontawesome.io">Font Awesome</a></p>
-            </footer>
+            <?php include 'footer.php' ?>
         </div>
     </body>
 </html>

@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../resources/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../resources/css/default-stylesheet.css">
-        <link rel="stylesheet" href="../resources/css/registration.css">
-        <link rel="icon" href="../resources/img/favicon.ico" type="image/x-icon">
+        <?php include 'head.php' ?>
         <title>Registration</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="placeholder">
+        <link rel="stylesheet" href="../resources/css/registration.css">
         <script src="../resources/js/validate_registration.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
         <header>
-            <div id="navbar">
-                <ul class="navbar-item-container">
-                    <li class="navbar-item"><a class="navbar-link" href="./index.html"><span class="fa fa-home"></span> Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="./search.html"><span class="fa fa-search"></span> Search</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="./registration.html"><span class="fa fa-user-plus"></span> Register</a></li>
-                </ul>
-            </div>
+            <?php include 'navbar.php' ?>
             <div id="page-header">
                 <h1><span class="fa fa-user-plus"></span> Registration</h1>
             </div>
@@ -29,7 +18,7 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./index.html" id="registration-form" onsubmit="return validate();" onchange="resetError();">
+                <form action="./index.php" id="registration-form" onsubmit="return validate();" onchange="resetError();">
                     <div id="form-float-container">
                         <div id="form-label-column">
                             <label for="email-field"><strong>Email Address: </strong></label><br>
@@ -51,7 +40,7 @@
                         </div>
                     </div>
                     <div id="form-submit-container">
-                        <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();"><label for="agree-checkbox"> I agree to the <a href="">Terms and Conditions</a></label><br>
+                        <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();"><label for="agree-checkbox"> I agree to the <a href="#">Terms and Conditions</a></label><br>
                         <input type="submit" value="Register" />
                     </div>
                     <div class="error-message">
@@ -71,11 +60,7 @@
                 </form>
             </div>
             <!-- SECTION 3: Footer -->
-            <footer id="footer">
-                <hr class="footer-separator">
-                <p><span class="fa fa-users"></span> Website by Connor Gillespie and Hugh Duong-Tran-Tien</p>
-                <p><span class="fa fa-font-awesome"></span> Icons by <a href="http://fontawesome.io">Font Awesome</a></p>
-            </footer>
+            <?php include 'footer.php' ?>
         </div>
     </body>
 </html>

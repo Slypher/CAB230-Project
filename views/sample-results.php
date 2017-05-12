@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../resources/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../resources/css/default-stylesheet.css">
-        <link rel="stylesheet" href="../resources/css/sample-results.css">
-        <link rel="icon" href="../resources/img/favicon.ico" type="image/x-icon">
+        <?php include 'head.php' ?>
         <title>Sample Results</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
 	    <meta name="description" content="A sample results page on parks taken from the Brisbane City Council.">
+        <link rel="stylesheet" href="../resources/css/sample-results.css">
     </head>
     <body>
         <!--Section 1 HEADER-->
         <header>
-            <div id="navbar">
-                <ul class="navbar-item-container">
-                    <li class="navbar-item"><a class="navbar-link" href="./index.html"><span class="fa fa-home"></span> Home</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="./search.html"><span class="fa fa-search"></span> Search</a></li>
-                    <li class="navbar-item"><a class="navbar-link" href="./registration.html"><span class="fa fa-user-plus"></span> Register</a></li>
-                </ul>
-            </div>
+            <?php include 'navbar.php' ?>
             <div id="page-header">
                 <h1><span class="fa fa-list"></span> Sample Results</h1>  
             </div>
@@ -30,7 +19,7 @@
             <div id="content">
                 <!--ROW 1--><!--The Top Trending Tile-->
                 <div id="top-row">
-                    <a href="../views/sample-item.html" id="results-container">  
+                    <a href="../views/sample-item.php" id="results-container">  
                         <img src="../resources/img/park-table.jpg" alt="stock-image01">
                         <div id="description">
                             <h1> Featured Parks</h1>
@@ -43,7 +32,7 @@
                 <div class="row">
                     <!--Tile Example 1a-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 1a</h1>
@@ -54,7 +43,7 @@
                     </div>
                     <!--Tile Example 1b-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 1b</h1>
@@ -65,7 +54,7 @@
                     </div>
                     <!--Tile Example 1c-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 1c</h1>
@@ -79,7 +68,7 @@
                 <div class="row">
                     <!--Tile Example 2a-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                         <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 2a</h1>
@@ -90,7 +79,7 @@
                     </div>
                     <!--Tile Example 2b-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                         <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 2b</h1>
@@ -101,7 +90,7 @@
                     </div>
                     <!--Tile Example 2c-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 2c</h1>
@@ -115,7 +104,7 @@
                 <div id="bottom-row">
                     <!--Tile Example 3a-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 3a</h1>
@@ -126,7 +115,7 @@
                     </div>
                     <!--Tile Example 3b-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 3b</h1>
@@ -137,7 +126,7 @@
                     </div>
                     <!--Tile Example 3c-->
                     <div class="results-container-small">
-                        <a href="../views/sample-item.html" class="results-url-small"> 
+                        <a href="../views/sample-item.php" class="results-url-small"> 
                             <img src="../resources/img/park-table.jpg" alt="stock-image01">
                             <div class="results-description-small">
                                 <h1>Example Park 3c</h1>
@@ -148,12 +137,8 @@
                     </div>
                 </div> <!-- row 3 ends here--> 
             </div> <!-- div content ends here-->
-            <!--Section 3 Footer-->
-            <footer id="footer">
-                <hr class="footer-separator">
-                <p><span class="fa fa-users"></span> Website by Connor Gillespie and Hugh Duong-Tran-Tien</p>
-                <p><span class="fa fa-font-awesome"></span> Icons by <a href="http://fontawesome.io">Font Awesome</a></p>
-            </footer>
-        </div> <!-- div page container ends here-->        
+            <!-- SECTION 3: Footer -->
+            <?php include 'footer.php' ?>
+        </div>     
     </body>
 </html>
