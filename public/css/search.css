@@ -25,9 +25,7 @@
     color:gray;
 }
 .rating-picker {
-    padding: 1px;
     border-width: 1px;
-    border-radius: 1px;
     border-style: solid;
     border-color: rgb(169, 169, 169);
     width: 54px;

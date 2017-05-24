@@ -38,13 +38,13 @@
 .agree-checkbox {
     margin-bottom: 14px;
 }
+.gender-radio {
+    margin: 2px 3px 0 0;
+}
 
 label {
     margin-right: 6px;
     margin-top: 4px;
     margin-bottom: 10px;
     display: inline-block;
-}
-input[type='radio'] {
-    margin: 2px 3px 0 0;
 }

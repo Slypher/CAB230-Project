@@ -1,6 +1,6 @@
 <?php
-$mysql_hostname = 'localhost';
-$mysql_database = 'parks';
-$mysql_username = '';
-$mysql_password = '';
+$mysql_hostname = 'fastapps04.qut.edu.au';
+$mysql_database = 'n9467211';
+$mysql_username = 'n9467211';
+$mysql_password = 'password';
 ?>

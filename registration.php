@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php require_once './includes/partials/head.php' ?>
+        <?php require_once __DIR__.'/includes/partials/head.php' ?>
         <title>Registration</title>
 	    <meta name="description" content="placeholder">
-        <link rel="stylesheet" href="./public/css/registration.css">
-        <script src="./public/js/validate_registration.js"></script>
+        <link rel="stylesheet" href="public/css/registration.css">
+        <script src="public/js/validate_registration.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
         <header>
-            <?php require_once './includes/partials/navbar.php' ?>
+            <?php require_once __DIR__.'/includes/partials/navbar.php' ?>
             <div id="page-header">
                 <h1><span class="fa fa-user-plus"></span> Registration</h1>
             </div>
@@ -28,20 +28,20 @@
                             <label><strong>Gender: </strong></label>
                         </div>
                         <div id="form-input-column">
-                            <input type="text" class="email-field" id="email-field" name="email" onclick="resetError();"><br>
-                            <input type="text" class="username-field" id="username-field" name="username" onclick="resetError();"><br>
-                            <input type="password" class="password-field" id="password-field" name="password" onclick="resetError();"><br>
-                            <input type="date" class="birth-picker" id="birth-picker" name="birth" onclick="resetError();"><br>
+                            <input type="text" class="input-field email-field" id="email-field" name="email" onclick="resetError();"><br>
+                            <input type="text" class="input-field username-field" id="username-field" name="username" onclick="resetError();"><br>
+                            <input type="password" class="input-field password-field" id="password-field" name="password" onclick="resetError();"><br>
+                            <input type="date" class="date birth-picker" id="birth-picker" name="birth" onclick="resetError();"><br>
                             <div id="radio-container">
-                                <input type="radio" class="male-radio" id="male-radio" name="gender" value="male" onclick="resetError();"><label for="male-radio">Male</label>
-                                <input type="radio" class="female-radio" id="female-radio" name="gender" value="female" onclick="resetError();"><label for="female-radio">Female</label>
-                                <input type="radio" class="other-radio" id="other-radio" name="gender" value="other" onclick="resetError();"><label for="other-radio">Other</label><br>
+                                <input type="radio" class="gender-radio male-radio" id="male-radio" name="gender" value="male" onclick="resetError();"><label for="male-radio">Male</label>
+                                <input type="radio" class="gender-radio female-radio" id="female-radio" name="gender" value="female" onclick="resetError();"><label for="female-radio">Female</label>
+                                <input type="radio" class="gender-radio other-radio" id="other-radio" name="gender" value="other" onclick="resetError();"><label for="other-radio">Other</label><br>
                             </div>
                         </div>
                     </div>
                     <div id="form-submit-container">
                         <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();"><label for="agree-checkbox"> I agree to the <a href="#">Terms and Conditions</a></label><br>
-                        <input type="submit" value="Register" />
+                        <input type="submit" class="button large-button" value="Register" />
                     </div>
                     <div class="error-message">
                         <span class="error email-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>enter an email address</strong><br></span>
@@ -60,7 +60,7 @@
                 </form>
             </div>
             <!-- SECTION 3: Footer -->
-            <?php require_once './includes/partials/footer.php' ?>
+            <?php require_once __DIR__.'/includes/partials/footer.php' ?>
         </div>
     </body>
 </html>

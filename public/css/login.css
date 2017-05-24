@@ -29,14 +29,7 @@
 }
 #form-submit-container {
     clear: both;
-    margin-top: 16px;
-}
-#radio-container {
-    margin-left: 6px;
-    padding-top: 2px;
-}
-.agree-checkbox {
-    margin-bottom: 14px;
+    margin-top: 4px;
 }
 
 label {
@@ -44,7 +37,4 @@ label {
     margin-top: 4px;
     margin-bottom: 10px;
     display: inline-block;
-}
-input[type='radio'] {
-    margin: 2px 3px 0 0;
 }

@@ -20,7 +20,7 @@ p { /* This represents any paragraphs, contained inside the <p></p> tag. */
     margin: 0px;
     margin-bottom: 6px;
 }
-input[type='text'], input[type='password'], input[type='number'], input[type='date'], select {
+.input-field {
     margin-top: 1px;
     margin-bottom: 6px;
     margin-left: 4px;
@@ -33,15 +33,15 @@ input[type='text'], input[type='password'], input[type='number'], input[type='da
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-input[type='date'] {
+.date {
     padding-top: 2px;
     padding-bottom: 1px;
 }
-select {
+.select {
     padding-top: 4px;
     padding-bottom: 3px;
 }
-button[type='button'], input[type='submit'] {
+.button {
     cursor: pointer;
     padding: 6px 8px 6px 8px;
     color: #fff;
@@ -50,8 +50,12 @@ button[type='button'], input[type='submit'] {
     border: 1px solid transparent;
     border-radius: 4px;
 }
-button[type='button']:hover, input[type='submit']:hover {
+.button:hover {
     background-color: #2d6a9f;
+}
+.large-button {
+    padding: 6px 22px 6px 22px;
+    font-size: 16px;
 }
 
 #page-container {
