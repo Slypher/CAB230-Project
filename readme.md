@@ -4,16 +4,19 @@ A PHP based website with a MySQL back-end for data storage. It uses HTML Forms w
 ## Directory Structure
 ```
 CAB230-Project/
-  views/
-    index.php
-    search.php
-    registration.php
-    sample-results.php
-    sample-item.php
-    head.php <------------------- Default <head> included in each page
-    navbar.php <----------------- Navbar included in each page
-    footer.php <----------------- Footer included in each page
-  resources/
+  includes/
+    partials/
+      footer.php
+      head.php
+      navbar.php
+    scripts/
+      login.php
+      register.php
+  lib/
+    database.php
+  config/
+    mysqlconfig.php
+  public/
     css/
       ... stylesheets ...
     js/
@@ -22,6 +25,12 @@ CAB230-Project/
       ... images ...
     font-awesome/
       ... font awesome files ...
+    index.php
+  login.php
+  registration.php
+  sample-item.php
+  sample-results.php
+  search.php
 ```
 
 ## Authors

@@ -1,0 +1,50 @@
+/* This CSS file represents the formatting
+ * for ONE page, the login.php page. */
+
+/* Page Container CSS */
+/* This will override the width set by default-stylesheet.css */
+#page-container {
+    width: 500px;
+}
+#content {
+    text-align: center;
+}
+
+#login-form {
+    text-align: center;
+}
+#form-label-column {
+    float: left;
+    text-align: right;
+}
+#form-input-column {
+    float: left;
+    text-align: left;
+}
+#form-float-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    overflow:auto;
+}
+#form-submit-container {
+    clear: both;
+    margin-top: 16px;
+}
+#radio-container {
+    margin-left: 6px;
+    padding-top: 2px;
+}
+.agree-checkbox {
+    margin-bottom: 14px;
+}
+
+label {
+    margin-right: 6px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+input[type='radio'] {
+    margin: 2px 3px 0 0;
+}

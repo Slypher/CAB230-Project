@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include 'head.php' ?>
+        <?php require_once './includes/partials/head.php' ?>
         <title>Search</title>
 	    <meta name="description" content="placeholder">
-        <link rel="stylesheet" href="../resources/css/search.css">
-        <script src="../resources/js/geolocation.js"></script>
-        <script src="../resources/js/validate_search.js"></script>
+        <link rel="stylesheet" href="./public/css/search.css">
+        <script src="./public/js/geolocation.js"></script>
+        <script src="./public/js/validate_search.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
         <header>
-            <?php include 'navbar.php' ?>
+            <?php require_once './includes/partials/navbar.php' ?>
             <div id="page-header">
                 <h1><span class="fa fa-search"></span> Search</h1>
             </div>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <!-- SECTION 3: Footer -->
-            <?php include 'footer.php' ?>
+            <?php require_once './includes/partials/footer.php' ?>
         </div>
     </body>
 </html>

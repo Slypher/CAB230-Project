@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include 'head.php' ?>
+        <?php require_once './includes/partials/head.php' ?>
         <title>Sample Item</title>
 	    <meta name="description" content="placeholder">
-        <link rel="stylesheet" href="../resources/css/sample-item.css">
-        <script src="../resources/js/slider.js"></script>
+        <link rel="stylesheet" href="./public/css/sample-item.css">
+        <script src="./public/js/slider.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->
         <header>
-            <?php include 'navbar.php' ?>
+            <?php require_once './includes/partials/navbar.php' ?>
             <div id="page-header">
                 <h1><span class="fa fa-map-marker"></span> Sample Item</h1>
             </div>
@@ -22,9 +22,9 @@
                     <h1>7th Brigade Park</h1>
                     <h2>Chermside</h2>
                     <div class="slider-container">
-                        <img class="slides" id="slide1" src="../resources/img/sample-item-1-img.jpg" alt="sample-image01">
-                        <img class="slides" id="slide2" src="../resources/img/sample-item-3-img.jpg" alt="sample-image02">
-                        <img class="slides" id="slide3" src="../resources/img/sample-item-4-img.jpg" alt="sample-image03">
+                        <img class="slides" id="slide1" src="./public/img/sample-item-1-img.jpg" alt="sample-image01">
+                        <img class="slides" id="slide2" src="./public/img/sample-item-3-img.jpg" alt="sample-image02">
+                        <img class="slides" id="slide3" src="./public/img/sample-item-4-img.jpg" alt="sample-image03">
                         
                         <button class="button-left" onclick="plusDivs(-1)">&#10094;</button>
                         <button class="button-right" onclick="plusDivs(1)">&#10095;</button>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <!-- SECTION 3: Footer -->
-            <?php include 'footer.php' ?>
+            <?php require_once './includes/partials/footer.php' ?>
         </div>
     </body>
 </html>
