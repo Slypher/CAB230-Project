@@ -1,3 +1,5 @@
+<?php require_once __DIR__.'/includes/scripts/login.php' ?>
+<?php require_once __DIR__.'/includes/functions.php' ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +20,7 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./includes/scripts/login.php" method="POST" id="login-form" onsubmit="return validate();" onchange="resetError();">
+                <form action="./login.php" method="POST" id="login-form" onchange="resetError();">
                     <div id="form-float-container">
                         <div id="form-label-column">
                             <label for="email-field"><strong>Email Address: </strong></label><br>
@@ -30,14 +32,10 @@
                         </div>
                     </div>
                     <div id="form-submit-container">
-                        <input type="submit" class="button large-button" value="Login" />
+                        <input type="submit" class="button large-button" name="login" value="Login" />
                     </div>
-                    <div class="error-message">
-                        <span class="error email-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>enter an email address</strong><br></span>
-                        <span class="error email-invalid-error"><span class="fa fa-exclamation-triangle"></span> Please enter a <strong> valid email address</strong><br></span>
-                        <span class="error password-short-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>5 or more</strong> characters<br></span>
-                        <span class="error password-long-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>22 or fewer</strong> characters<br></span>
-                        <span class="error password-number-error"><span class="fa fa-exclamation-triangle"></span> Please choose a password with <strong>2 or more</strong> numbers<br></span>
+                    <div class="error-message" <?php if (isset($_POST['login'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>
+                        <?php if (isset($_POST['login'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                    </div>
                 </form>
             </div>

@@ -1,15 +1,13 @@
 <?php
 require_once __DIR__.'/../../lib/database.php';
+require_once __DIR__.'/../functions.php';
 
 try {
-    $name = null;
-    $suburb = null;
-    $rating = null;
-
-    if (isset($_POST['name'])) $name = $_POST['name'];
-    if (isset($_POST['suburb'])) $suburb = $_POST['suburb'];
-    if (isset($_POST['rating'])) $rating = $_POST['rating'];
-    // if (isset($_POST['location'])) $price = $_POST['Price'];
+    parse_str($_SERVER['QUERY_STRING'], $query);
+    $name = (isset($query['name']) ? $query['name'] : null);
+    $suburb = (isset($query['suburb']) ? $query['suburb'] : null);
+    $rating = (isset($query['rating']) ? $query['rating'] : null);
+    $location = (isset($query['location']) ? $query['location'] : null);
 
     $stmt = $pdo->query("SELECT id, Name, Suburb FROM parks WHERE Name LIKE '%$name%'");
     //$stmt = $pdo->prepare("SELECT id, Name, Suburb FROM parks WHERE Name LIKE '%:name%'");
@@ -35,6 +33,6 @@ try {
     }
     if (!empty($row)) array_push($rows, $row);
 } catch (PDOException $e) {
-    echo $e->getMessage();
+echo $e->getMessage();
 }
 ?>

@@ -12,6 +12,9 @@ body {
     color: #292b2c;
     background-color: #fff;
 }
+header {
+    text-align: center;
+}
 a { /* This represents any hyperlinks, contained inside the <a></a> tag. */
     color: #0275d8;
     text-decoration: none; /* Do not underline */
@@ -103,7 +106,7 @@ p { /* This represents any paragraphs, contained inside the <p></p> tag. */
     padding-bottom: 8px;
     padding-left: 16px;
     padding-right: 16px;
-    width: 800px;
+    display: inline-block;
 
     /* The following lines of CSS allows the page to center
      * the container using the left and right margins */

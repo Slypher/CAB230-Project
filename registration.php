@@ -1,3 +1,5 @@
+<?php require_once __DIR__.'/includes/scripts/register.php' ?>
+<?php require_once __DIR__.'/includes/functions.php' ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +20,7 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./includes/scripts/register.php" method="POST" id="registration-form" onsubmit="return validate();" onchange="resetError();">
+                <form action="./registration.php" method="POST" id="registration-form" onsubmit="return validate();" onchange="resetError();">
                     <div id="form-float-container">
                         <div id="form-label-column">
                             <label for="email-field"><strong>Email Address: </strong></label><br>
@@ -31,7 +33,7 @@
                             <input type="text" class="input-field email-field" id="email-field" name="email" onclick="resetError();"><br>
                             <input type="text" class="input-field username-field" id="username-field" name="username" onclick="resetError();"><br>
                             <input type="password" class="input-field password-field" id="password-field" name="password" onclick="resetError();"><br>
-                            <input type="date" class="date birth-picker" id="birth-picker" name="birth" onclick="resetError();"><br>
+                            <input type="date" class="input-field date birth-picker" id="birth-picker" name="birth" onclick="resetError();"><br>
                             <div id="radio-container">
                                 <input type="radio" class="gender-radio male-radio" id="male-radio" name="gender" value="male" onclick="resetError();"><label for="male-radio">Male</label>
                                 <input type="radio" class="gender-radio female-radio" id="female-radio" name="gender" value="female" onclick="resetError();"><label for="female-radio">Female</label>
@@ -41,9 +43,9 @@
                     </div>
                     <div id="form-submit-container">
                         <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();"><label for="agree-checkbox"> I agree to the <a href="#">Terms and Conditions</a></label><br>
-                        <input type="submit" class="button large-button" value="Register" />
+                        <input type="submit" class="button large-button" name="register" value="Register" />
                     </div>
-                    <div class="error-message">
+                    <div class="error-message" <?php if (isset($_POST['register'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>
                         <span class="error email-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>enter an email address</strong><br></span>
                         <span class="error email-invalid-error"><span class="fa fa-exclamation-triangle"></span> Please enter a <strong> valid email address</strong><br></span>
                         <span class="error username-short-error"><span class="fa fa-exclamation-triangle"></span> Please choose a username with <strong>5 or more</strong> characters<br></span>
@@ -56,6 +58,7 @@
                         <span class="error age-young-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>before 2010</strong><br></span>
                         <span class="error age-old-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>after 1917</strong><br></span>
                         <span class="error agree-error"><span class="fa fa-exclamation-triangle"></span> You must agree to our <strong>Terms and Conditions</strong><br></span>
+                        <?php if (isset($_POST['register'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                     </div>
                 </form>
             </div>

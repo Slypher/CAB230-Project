@@ -1,3 +1,6 @@
+<?php require_once __DIR__.'/includes/scripts/validateSearch.php' ?>
+<?php require_once __DIR__.'/includes/functions.php' ?>
+<?php require_once __DIR__.'/lib/database.php' ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,23 +22,21 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
-                <form action="./results.php" method="POST" id="search-form" onsubmit="return validate();">
+                <form action="./search.php" method="POST" id="search-form" onsubmit="return validate();">
                     <input type="text" class="input-field name-field" name="name" placeholder="Name of Park" onchange="resetError();"><br>
                     <select class="input-field select suburb-picker" name="suburb" onchange="resetError();">
                         <option value="default" id="default" disabled selected>Select a Suburb</option>
-                        <option value="1">Example Suburb</option>
-                        <option value="2">Example Suburb</option>
-                        <option value="3">Example Suburb</option>
+                        <?php echoSuburbs($pdo) ?>
                     </select>
                     <input type="number" name="rating" class="input-field rating-picker" placeholder="Rating" step="0.5" min="1" max="5" onchange="resetError();"><br>
+                    <input type="hidden" name="location-lat" class="location-lat">
+                    <input type="hidden" name="location-long" class="location-long">
                     <button type="button" class="button" onclick="getLocation()">Get my Location</button>
-                    <input type="submit" class="button" value="Search" />
+                    <input type="submit" name="search" class="button" value="Search" />
                 </form>
-                <div class="error-message">
-                    <span class="error name-error"><span class="fa fa-exclamation-triangle"></span> Please provide a <strong>park name</strong><br></span>
-                    <span class="error suburb-error"><span class="fa fa-exclamation-triangle"></span> Please select a <strong>suburb</strong><br></span>
-                    <span class="error rating-error"><span class="fa fa-exclamation-triangle"></span> Please choose a <strong>park rating</strong><br></span>
+                <div class="error-message" <?php if (isset($_POST['search'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>
                     <span class="error rating-num-error"><span class="fa fa-exclamation-triangle"></span> Please choose a park rating between <strong>1 and 5</strong><br></span>
+                    <?php if (isset($_POST['search'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                 </div>
             </div>
             <!-- SECTION 3: Footer -->

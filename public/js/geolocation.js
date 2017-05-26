@@ -6,5 +6,6 @@ function getLocation() {
 
 // This function receives the geolocation data and uses it
 function showPosition(position) {
-    alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude)
+    document.getElementsByClassName('location-lat')[0].value = position.coords.latitude
+    document.getElementsByClassName('location-long')[0].value = position.coords.longitude
 }
