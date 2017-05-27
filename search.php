@@ -27,7 +27,8 @@
                     <select class="input-field select suburb-picker" name="suburb" onchange="resetError();">
                         <option value="default" id="default" disabled selected>Select a Suburb</option>
                         <?php echoSuburbs($pdo) ?>
-                    </select>
+                    </select><br>
+                    <input type="text" name="distance" class="input-field distance-field" placeholder="Distance (km)" onchange="resetError();" disabled>
                     <input type="number" name="rating" class="input-field rating-picker" placeholder="Rating" step="0.5" min="1" max="5" onchange="resetError();"><br>
                     <input type="hidden" name="location-lat" class="location-lat">
                     <input type="hidden" name="location-long" class="location-long">
@@ -35,6 +36,9 @@
                     <input type="submit" name="search" class="button" value="Search" />
                 </form>
                 <div class="error-message" <?php if (isset($_POST['search'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>
+                    <span class="error distance-numeric-error"><span class="fa fa-exclamation-triangle"></span> Distance must be a <strong>number</strong><br></span>
+                    <span class="error location-lat-numeric-error"><span class="fa fa-exclamation-triangle"></span> Location latitude must be a <strong>number</strong><br></span>
+                    <span class="error location-long-numeric-error"><span class="fa fa-exclamation-triangle"></span> Location longitude must be a <strong>number</strong><br></span>
                     <span class="error rating-num-error"><span class="fa fa-exclamation-triangle"></span> Please choose a park rating between <strong>1 and 5</strong><br></span>
                     <?php if (isset($_POST['search'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                 </div>

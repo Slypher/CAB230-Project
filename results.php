@@ -20,12 +20,12 @@
             <div id="content">
                 <?php
                     echo '<div id="top-row">';
-                    echo '<a href="sample-item.php?id='.$toprow["id"].'" id="results-container">';
+                    echo '<a href="sample-item.php?id=0" id="results-container">';
                     echo '<img src="public/img/park-table.jpg" alt="stock-image01">';
                     echo '<div id="description">';
-                    echo '<h1> '.$toprow["Name"].'</h1>';
-                    echo '<p> '.$toprow["Suburb"].'</p>';
-                    echo '<p> '.$toprow["Rating"].'</p>';
+                    echo '<h1> 0</h1>';
+                    echo '<p> 0</p>';
+                    echo '<p> 0</p>';
                     echo '</div>';
                     echo '</a>';
                     echo '</div>';

@@ -53,7 +53,16 @@ function isValidRating($rating) {
     if ($rating > 5 || $rating < 1) return 'Please choose a park rating between <strong>1 and 5</strong>';
     return null;
 }
-function isValidLocation($location) {
+function isValidDistance($distance) {
+    if ($distance != null && $distance != '' && !is_numeric($distance)) return 'Distance must be a <strong>number</strong>';
+    return null;
+}
+function isValidLocationLat($location_lat) {
+    if ($location_lat != null && $location_lat != '' && !is_numeric($location_lat)) return 'Location Latitude must be a <strong>number</strong>';
+    return null;
+}
+function isValidLocationLong($location_long) {
+    if ($location_long != null && $location_long != '' && !is_numeric($location_long)) return 'Location Longitude must be a <strong>number</strong>';
     return null;
 }
 
@@ -61,6 +70,23 @@ function isValidLocation($location) {
 function echoSuburbs($pdo) {
     $results = $pdo->query('SELECT DISTINCT Suburb FROM parks')->fetchAll();
     foreach ($results as $result) echo '<option value="'.$result['Suburb'].'">'.$result['Suburb'].'</option>';
+}
+
+/* search.php distance calculator */
+function calcDistance($lat1, $long1, $lat2, $long2) {
+    $R = 6371e3; // metres
+    $lat1Rad = deg2rad($lat1);
+    $lat2Rad = deg2rad($lat2);
+    $deltaLat = deg2rad($lat2-$lat1);
+    $deltaLong = deg2rad($long2-$long1);
+
+    $a = sin($deltaLat/2) * sin($deltaLat/2) +
+            cos($lat1Rad) * cos($lat2Rad) *
+            sin($deltaLong/2) * sin($deltaLong/2);
+    $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+
+    $d = $R * $c;
+    return $d;
 }
 
 /* login.php, registration.php, search.php error checker */
