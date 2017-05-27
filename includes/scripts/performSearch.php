@@ -11,7 +11,7 @@ try {
     $location_lat = (isset($query['location-lat']) && $query['location-lat'] != '' ? $query['location-lat'] : null);
     $location_long = (isset($query['location-long']) && $query['location-long'] != '' ? $query['location-long'] : null);
 
-    $sql = "SELECT id, Name, Suburb, Latitude, Longitude, (SELECT avg(rating) FROM reviews WHERE park_id = id GROUP BY park_id) as Rating FROM parks";
+    $sql = "SELECT id, Name, Street, Suburb, Latitude, Longitude, (SELECT avg(rating) FROM reviews WHERE park_id = id GROUP BY park_id) as Rating FROM parks";
 
     $sql_append = array();
     if ($name) array_push($sql_append, "Name LIKE :name");
@@ -29,28 +29,16 @@ try {
     $stmt->execute();
     $results = $stmt->fetchAll();
 
-    $row = array();
-    $rows = array();
-    $counter = 0;
     foreach ($results as $key => $result) {
-        $counter += 1;
-
         if ($distance && $location_lat && $location_long) {
             $park_distance = calcDistance($location_lat, $location_long, $result['Latitude'], $result['Longitude']) / 1000;
             if ($park_distance > $distance) {
-                unset($results[$key], $result);
+                unset($results[$key]);
                 continue;
-            } else $result['Distance'] = $park_distance;
-        }
-        if ($result['Rating'] == null || $result['Rating'] == '') $result['Rating'] = 'No rating';
-        array_push($row, $result);
-        if ($counter == 3) {
-            $counter = 0;
-            array_push($rows, $row);
-            $row = array();
-        }
+            } else $results[$key]['Distance'] = substr($park_distance, 0, strpos($park_distance, '.')).substr($park_distance, strpos($park_distance, '.'), 2).' km';
+        } else $results[$key]['Distance'] = '';
+        if ($result['Rating'] != null && $result['Rating'] != '') $results[$key]['Rating'] = substr($results[$key]['Rating'], 0, 3);
     }
-    if (!empty($row)) array_push($rows, $row);
 } catch (PDOException $e) {
 echo $e->getMessage();
 }

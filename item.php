@@ -4,8 +4,7 @@
 <html>
     <head>
         <?php require_once './includes/partials/head.php' ?>
-        <title>Sample Item</title>
-	    <meta name="description" content="placeholder">
+        <title><?php echo $item['Name'] ?></title>
         <link rel="stylesheet" href="./public/css/item.css">
     </head>
     <body>
@@ -27,8 +26,11 @@
                     <div class="reviews">
                         <div class="title-container">
                             <h3><span class="fa fa-book"></span> Reviews</h3>
-                            <span class="subtle-text">average rating of <?php echo $item['Rating'] ?> stars</span>
+                            <?php if (isset($item['Rating'])) echo '<span class="subtle-text">average rating of '.substr($item['Rating'], 0, 3).' stars</span>' ?>
                         </div>
+                        <input type="hidden" name="location_lat" value="<?php echo $item['Latitude'] ?>" />
+                        <input type="hidden" name="location_long" value="<?php echo $item['Longitude'] ?>" />
+                        <div id="map"></div>
                         <?php
                         foreach ($reviews as $review) {
                             echo '<div class="review-container">';
@@ -72,8 +74,10 @@
                             <input type="submit" name="review" class="button large-button review-button" value="Submit" />
                         </div>
                     </div>
-                    <input type="hidden" name="user_id" value="<?php echo '1'?>" />
+                    <input type="hidden" name="user_id" value="<?php echo '2'?>" />
                 </form>
+                <script src="public/js/itemMap.js"></script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGLqT3avfEd6E22DZPezSxqAVRYk8tP6U&callback=initMap"></script>
             </div>
             <!-- SECTION 3: Footer -->
             <?php require_once './includes/partials/footer.php' ?>

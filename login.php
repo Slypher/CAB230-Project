@@ -7,7 +7,7 @@
         <title>Login</title>
 	    <meta name="description" content="placeholder">
         <link rel="stylesheet" href="public/css/login.css">
-        <script src="public/js/validate_registration.js"></script>
+        <script src="public/js/validate_login.js"></script>
     </head>
     <body>
         <!-- SECTION 1: Header -->

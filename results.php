@@ -3,8 +3,7 @@
 <html>
     <head>
         <?php require_once __DIR__.'/includes/partials/head.php' ?>
-        <title>Sample Results</title>
-	    <meta name="description" content="A sample results page on parks taken from the Brisbane City Council.">
+        <title>Search Results</title>
         <link rel="stylesheet" href="public/css/results.css">
     </head>
     <body>
@@ -12,43 +11,41 @@
         <header>
             <?php require_once __DIR__.'/includes/partials/navbar.php' ?>
             <div id="page-header">
-                <h1><span class="fa fa-list"></span> Sample Results</h1>  
+                <h1><span class="fa fa-list"></span> Search Results</h1>  
             </div>
         </header>
         <div id="page-container">
         <!--Section 2 CONTENT-->
             <div id="content">
-                <?php
-                    echo '<div id="top-row">';
-                    echo '<a href="item.php?id=0" id="results-container">';
-                    echo '<img src="public/img/park-table.jpg" alt="stock-image01">';
-                    echo '<div id="description">';
-                    echo '<h1> 0</h1>';
-                    echo '<p> 0</p>';
-                    echo '<p> 0</p>';
-                    echo '</div>';
-                    echo '</a>';
-                    echo '</div>';
-
-                    foreach ($rows as $row) {
-                        echo '<div class="row">';
-                        foreach ($row as $result) {
-                            echo '<div class="results-container-small">';
-                            echo '<a href="item.php?id='.$result["id"];
-                            if (isset($result["Distance"])) echo '&distance='.$result["Distance"];
-                            echo '" class="results-url-small">';
-                            echo '<img src="public/img/park-table.jpg" alt="stock-image01">';
-                            echo '<div class="results-description-small">';
-                            echo '<h1> '.$result["Name"].'</h1>';
-                            echo '<p> '.$result["Suburb"].'</p>';
-                            echo '<p> '.$result["Rating"].'</p>';
-                            echo '</div>';
-                            echo '</a>';
-                            echo '</div>';
-                        }
-                        echo '</div>';
-                    }
-                ?>
+                <div id="map"></div>
+                <table>
+                    <tbody id="results-table">
+                        <tr>
+                            <th><strong>Name</strong></th>
+                            <th><strong>Street</strong></th>
+                            <th><strong>Suburb</strong></th>
+                            <th><strong>Distance</strong></th>
+                            <th><strong>Rating</strong></th>
+                        </tr>
+                        <?php
+                            foreach ($results as $result) {
+                                echo '<tr id="'.$result["id"].'">';
+                                echo '<td><a href="item.php?id='.$result["id"].'&distance='.$result["Distance"].'">'.$result["Name"].'</a></td>';
+                                echo '<td><a href="item.php?id='.$result["id"].'&distance='.$result["Distance"].'">'.$result["Street"].'</a></td>';
+                                echo '<td><a href="item.php?id='.$result["id"].'&distance='.$result["Distance"].'">'.$result["Suburb"].'</a></td>';
+                                echo '<td><a href="item.php?id='.$result["id"].'&distance='.$result["Distance"].'">'.$result["Distance"].'</a></td>';
+                                echo '<td><a href="item.php?id='.$result["id"].'&distance='.$result["Distance"].'">'.$result["Rating"].'</a></td>';
+                                echo '<input type="hidden" name="url" value="http://'.$_SERVER['HTTP_HOST'].'/item.php?id='.$result["id"].'&distance='.$result["Distance"].'" />';
+                                echo '<input type="hidden" name="location_lat" value="'.$result['Latitude'].'" />';
+                                echo '<input type="hidden" name="location_long" value="'.$result['Longitude'].'" />';
+                                echo '</tr>';
+                            }
+                        ?>
+                    </tbody>
+                </table>
+                <script src="public/js/resultsMap.js"></script>
+                <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGLqT3avfEd6E22DZPezSxqAVRYk8tP6U&callback=initMap"></script>
             </div> <!-- div content ends here-->
             <!-- SECTION 3: Footer -->
             <?php require_once __DIR__.'/includes/partials/footer.php' ?>
