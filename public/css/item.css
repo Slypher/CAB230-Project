@@ -1,0 +1,140 @@
+/* This CSS file represents the formatting
+ * for ONE page, the sample-item.php page. */
+
+/* Page Container CSS */
+/* This will override the width set by default-stylesheet.css */
+#page-container {
+    width: 500px;
+}
+#content{
+    text-align: center;
+}
+
+.title-container {
+    margin-bottom: 18px;
+}
+.title-container h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.title-container h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.review-container {
+    background-color: #e6e6e6;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    padding: 4px 4px 4px 4px;
+    margin-top: 16px;
+}
+
+.review-title {
+    margin-top: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    overflow: auto;
+}
+
+.review-username {
+    float: left;
+}
+
+.review-date {
+    float: left;
+    color: #808080;
+    font-style: italic;
+    margin-left: 8px;
+}
+
+.review-rating {
+    float: right;
+}
+
+.review-body {
+    clear: both;
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.review-form {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+.form-container {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    display: inline-block;
+}
+
+.review-textarea {
+    margin-top: 1px;
+    margin-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    float: left;
+    max-width: 328px;
+}
+
+.submit-container {
+    float: left;
+    text-align: center;
+}
+
+.review-button {
+    display: block;
+    margin-left: 16px;
+}
+
+.rating-container {
+    display: block;
+    overflow: auto;
+    margin: 4px 0px 4px 8px;
+}
+
+.rating {
+    float: left;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label:before {
+    margin: 2px;
+    font-size: 20px;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f006";
+}
+
+.rating > label {
+    color: #292b2c;
+    float: right;
+}
+
+.rating > input:checked ~ label, /* change color BEHIND checked radio */
+.rating:not(:checked) > label:hover ~ label { color: #292b2c; } /* change color BEHIND hovered radio */
+
+.rating > input:checked ~ label:before, /* change stars BEHIND checked radio  */
+.rating:not(:checked) > label:hover ~ label:before { content: "\f005"; } /* change stars BEHIND hovered radio */
+
+.rating:not(:checked) > input:checked ~ label:hover{ color: #494e50; } /* change color of currently hovered radio IF behind checked radio */
+.rating:not(:checked) > label:hover { color: #292b2c; } /* change color of currently hovered radio IF after checked radio */
+.rating:not(:checked) > label:hover:before { content: "\f005"; } /* change star of currently hovered radio */

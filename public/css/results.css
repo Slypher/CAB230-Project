@@ -1,0 +1,103 @@
+/* This CSS file represents the formatting
+ * for ONE page, the sample-results.php page. */
+
+/* Page Container CSS */
+/* This will override the width set by default-stylesheet.css */
+#page-container {
+    width: 1200px;
+}
+#content {
+    text-align: center;
+}
+
+/* Other CSS */
+#top-row {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.row {
+    clear: both;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+/* Top Trending Tile CSS */
+#results-container {
+    display:inline-block;
+    width: 50%;
+}
+#results-container:hover img {
+    opacity: 0.6;
+    transform: scale(1.05,1.05);
+    border-radius: 6px;
+}
+#results-container img {
+    width: 100%;
+    height: auto;
+    transition:all 0.25s ease-in-out;
+    border-radius: 12px;
+}
+#results-container:hover #description {
+    opacity: 1;
+}
+#results-container #description {
+    /* Transition CSS */
+    cursor: pointer;
+    position: absolute;
+    top: 130px;
+    left: 315px;
+    opacity: 0;
+    transition:all 0.45s ease-in-out;
+
+    /* Text CSS */
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #373D3F;
+    height: 50px;
+    width: 567px;
+    text-align: center;
+}
+
+/* Sample Results CSS */
+.results-container-small {
+    float: left;
+    width: 29.3%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.results-url-small {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    display: block;
+}
+.results-url-small:hover img {
+    opacity: 0.6;
+    transform: scale(1.05,1.05);
+    border-radius: 4px;
+}
+.results-url-small:hover .results-description-small {
+    opacity: 1;
+}
+.results-container-small img{
+    width: 100%;
+    height: auto;
+    transition:all 0.25s ease-in-out;
+    border-radius: 8px;
+}
+.results-container-small .results-description-small {
+    /* Transition CSS */
+    cursor: pointer;
+    opacity: 0;
+    transition:all 0.45s ease-in-out;
+    text-transform: uppercase;
+
+    /* Text CSS */
+    font-size: 16px;
+    color: #373D3F;
+    height: 50px;
+    width: 380px;
+    position: absolute;
+    text-align: center;
+    transform: translate(-4%, -175px);
+}

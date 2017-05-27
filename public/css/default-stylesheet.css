@@ -23,6 +23,10 @@ p { /* This represents any paragraphs, contained inside the <p></p> tag. */
     margin: 0px;
     margin-bottom: 6px;
 }
+.subtle-text {
+    color: #999999;
+    font-style: italic;
+}
 .input-field {
     margin-top: 1px;
     margin-bottom: 6px;

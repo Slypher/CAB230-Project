@@ -5,7 +5,7 @@
         <?php require_once __DIR__.'/includes/partials/head.php' ?>
         <title>Sample Results</title>
 	    <meta name="description" content="A sample results page on parks taken from the Brisbane City Council.">
-        <link rel="stylesheet" href="public/css/sample-results.css">
+        <link rel="stylesheet" href="public/css/results.css">
     </head>
     <body>
         <!--Section 1 HEADER-->
@@ -20,7 +20,7 @@
             <div id="content">
                 <?php
                     echo '<div id="top-row">';
-                    echo '<a href="sample-item.php?id=0" id="results-container">';
+                    echo '<a href="item.php?id=0" id="results-container">';
                     echo '<img src="public/img/park-table.jpg" alt="stock-image01">';
                     echo '<div id="description">';
                     echo '<h1> 0</h1>';
@@ -34,7 +34,9 @@
                         echo '<div class="row">';
                         foreach ($row as $result) {
                             echo '<div class="results-container-small">';
-                            echo '<a href="sample-item.php?id='.$result["id"].'" class="results-url-small">';
+                            echo '<a href="item.php?id='.$result["id"];
+                            if (isset($result["Distance"])) echo '&distance='.$result["Distance"];
+                            echo '" class="results-url-small">';
                             echo '<img src="public/img/park-table.jpg" alt="stock-image01">';
                             echo '<div class="results-description-small">';
                             echo '<h1> '.$result["Name"].'</h1>';
