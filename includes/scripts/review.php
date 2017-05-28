@@ -26,7 +26,10 @@ try {
     $stmt->bindValue(':date', date('Y-m-d'));
     $stmt->execute();
 
-    $url = "Location: http://{$_SERVER['HTTP_HOST']}/item.php?id=".$id;
+    $url_array = parse_url(($_SERVER['HTTPS'] == 'on' ? "https" : "http").'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    $url = $url_array['scheme'].'://'.$url_array['host'];
+    $url .= (substr(dirname($url_array['path']), -1) == '\\' || dirname($url_array['path']) == '' ? dirname($url_array['path']) : dirname($url_array['path']).'\\');
+    header('Location: '.$url.'item.php?id='.$id);
     if (isset($distance)) $url .= '&distance='.$distance;
     header($url);
     exit();

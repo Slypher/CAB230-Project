@@ -21,6 +21,9 @@ $errors = array(
 );
 foreach ($errors as $error) if ($error) return; // If error is not null, exit
 $data = array('name' => $name, 'suburb' => $suburb, 'rating' => $rating, 'distance' => $distance, 'location-lat' => $location_lat, 'location-long' => $location_long);
-header("Location: http://{$_SERVER['HTTP_HOST']}/results.php?".http_build_query($data));
+$url_array = parse_url(($_SERVER['HTTPS'] == 'on' ? "https" : "http").'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$url = $url_array['scheme'].'://'.$url_array['host'];
+$url .= (substr(dirname($url_array['path']), -1) == '\\' || dirname($url_array['path']) == '' ? dirname($url_array['path']) : dirname($url_array['path']).'\\');
+header('Location: '.$url.'results.php?'.http_build_query($data));
 exit();
 ?>
