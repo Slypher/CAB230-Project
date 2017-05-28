@@ -66,6 +66,25 @@ function isValidLocationLong($location_long) {
     return null;
 }
 
+/* item.php isValid functions */
+function isValidUserId($user_id) {
+    if ($user_id == null || $user_id == '' || !is_numeric($user_id)) return 'User Id is invalid';
+    return null;
+}
+function isValidParkId($park_id) {
+    if ($park_id == null || $park_id == '' || !is_numeric($park_id)) return 'Park Id is invalid';
+    return null;
+}
+function isValidReview($review) {
+    if ($review == null || $review == '') return 'Please provide a <strong>review</strong>';
+    if (strlen($review) > 255) return 'Review cannot be more than <strong>255 characters</strong>';
+    return null;
+}
+function isValidReviewRating($rating) {
+    if ($rating == null || $rating == "" || $rating > 5 || $rating < 1) return 'Please choose a park rating between <strong>1 and 5</strong>';
+    return null;
+}
+
 /* search.php list of distinct suburbs */
 function echoSuburbs($pdo) {
     $results = $pdo->query('SELECT DISTINCT Suburb FROM parks')->fetchAll();

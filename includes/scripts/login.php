@@ -8,36 +8,22 @@ try {
     $password = (isset($_POST['password']) ? $_POST['password'] : null);
 
     // Check for errors and add error message to array
-    $errors = array(
-        "emailError" => isValidEmail($email),
-        "passwordError" => isValidPassword($password)
-    );
+    $errors = array();
     foreach ($errors as $error) if ($error) return; // If error is not null, exit
 
-    // $stmt = $pdo->query("SELECT id, Name, Suburb FROM parks WHERE Name LIKE '%$name%'");
-    // //$stmt = $pdo->prepare("SELECT id, Name, Suburb FROM parks WHERE Name LIKE '%:name%'");
-    // //$stmt->bindValue(':name', $name);
-    // //$stmt->execute();
-    // $results = $stmt->fetchAll();
+    $stmt = $pdo->prepare("SELECT id, email, username, salt, password, birth, gender FROM users WHERE email = :email");
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
+    $results = $stmt->fetchAll();
+    if (isset($results[0]) && $results[0]['email'] == $email) $account = $results[0];
+    else return array_push($errors, 'Email does not exist');
 
-    // $toprow = array_shift($results);
-    // $toprow['Rating'] = 0;
+    if ($account['password'] != hash('sha256', $password.$account['username'])) return array_push($errors, 'Password is incorrect');
 
-    // $row = array();
-    // $rows = array();
-    // $counter = 0;
-    // foreach ($results as $result) {
-    //     $counter += 1;
-    //     $result['Rating'] = 0;
-    //     array_push($row, $result);
-    //     if ($counter == 3) {
-    //         $counter = 0;
-    //         array_push($rows, $row);
-    //         $row = array();
-    //     }
-    // }
-    // if (!empty($row)) array_push($rows, $row);
-    header("Location: http://{$_SERVER['HTTP_HOST']}/index.php");
+    //$session_start();
+    $_SESSION['user'] = $account;
+    header("Location: http://{$_SERVER['HTTP_HOST']}/index.php?login=true");
+    exit();
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

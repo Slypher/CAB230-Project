@@ -45,7 +45,8 @@ try {
     //     }
     // }
     // if (!empty($row)) array_push($rows, $row);
-    header("Location: http://{$_SERVER['HTTP_HOST']}/index.php");
+    header("Location: http://{$_SERVER['HTTP_HOST']}/index.php?register=true");
+    exit();
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

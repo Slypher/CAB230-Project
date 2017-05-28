@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php require_once __DIR__.'/includes/scripts/login.php' ?>
 <?php require_once __DIR__.'/includes/functions.php' ?>
 <!DOCTYPE html>

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php require_once __DIR__.'/includes/scripts/validateSearch.php' ?>
 <?php require_once __DIR__.'/includes/functions.php' ?>
 <?php require_once __DIR__.'/lib/database.php' ?>

@@ -1,11 +1,13 @@
+<?php session_start() ?>
 <?php require_once __DIR__.'/includes/scripts/item.php' ?>
 <?php require_once __DIR__.'/includes/scripts/review.php' ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?php require_once './includes/partials/head.php' ?>
+        <?php require_once __DIR__.'/includes/partials/head.php' ?>
         <title><?php echo $item['Name'] ?></title>
-        <link rel="stylesheet" href="./public/css/item.css">
+        <link rel="stylesheet" href="public/css/item.css">
+        <?php if (isset($_SESSION['user'])) echo'<script src="public/js/validate_review.js"></script>'; ?>
     </head>
     <body>
         <!-- SECTION 1: Header -->
@@ -52,30 +54,37 @@
                         ?>
                     </div>
                 </div>
-                <form class="review-form" method="POST" action=
-                <?php
-                    echo '"./item.php?id='.$item['id'];
-                    if (isset($distance)) echo '&distance='.$distance;
-                    echo '">';
-                ?>
-                    <h3>Leave a review</h3>
-                    <div class="form-container">
-                        <textarea name="review-text" class="review-textarea" rows="4" cols="36" maxlength="255"></textarea>
-                        <div class="submit-container">
-                            <div class="rating-container">
-                                <div class="rating">
-                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-                                </div>
-                            </div>
-                            <input type="submit" name="review" class="button large-button review-button" value="Submit" />
-                        </div>
-                    </div>
-                    <input type="hidden" name="user_id" value="<?php echo '2'?>" />
-                </form>
+                    <?php
+                        if (isset($_SESSION['user'])) {
+                            echo '<form class="review-form" method="POST" action="./item.php?id='.$item['id'];
+                            if (isset($distance)) echo '&distance='.$distance;
+                            echo '" onsubmit="return validate();" onchange="resetError();">';
+                            echo '<h3>Leave a review</h3>';
+                            echo '<div class="form-container">';
+                            echo '<textarea name="review-text" class="review-textarea" rows="4" cols="36" maxlength="255" onclick="resetError();"></textarea>';
+                            echo '<div class="submit-container">';
+                            echo '<div class="rating-container">';
+                            echo '<div class="rating">';
+                            echo '<input type="radio" id="star5" class="star5" name="rating" value="5" onclick="resetError();"/><label for="star5"></label>';
+                            echo '<input type="radio" id="star4" class="star4" name="rating" value="4" onclick="resetError();"/><label for="star4"></label>';
+                            echo '<input type="radio" id="star3" class="star3" name="rating" value="3" onclick="resetError();"/><label for="star3"></label>';
+                            echo '<input type="radio" id="star2" class="star2" name="rating" value="2" onclick="resetError();"/><label for="star2"></label>';
+                            echo '<input type="radio" id="star1" class="star1" name="rating" value="1" onclick="resetError();"/><label for="star1"></label>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '<input type="submit" name="review" class="button large-button review-button" value="Submit" />';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</form>';
+                            echo '<div class="error-message" ';
+                            if (isset($_POST['review'])) if (anyErrors($errors)) echo 'style="display:inline-block;"';
+                                echo '><span class="error review-error"><span class="fa fa-exclamation-triangle"></span> Please provide a <strong>review</strong><br></span>';
+                                echo '<span class="error review-char-error"><span class="fa fa-exclamation-triangle"></span> Review cannot be more than <strong>255 characters</strong><br></span>';
+                                echo '<span class="error rating-error"><span class="fa fa-exclamation-triangle"></span> Please choose a park rating between <strong>1 and 5</strong><br></span>';
+                                if (isset($_POST['review'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>';
+                            echo '</div>';
+                        } else echo '<h3><a href="login.php">Login</a> to leave a review</h3>'
+                    ?>
                 <script src="public/js/itemMap.js"></script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGLqT3avfEd6E22DZPezSxqAVRYk8tP6U&callback=initMap"></script>
             </div>

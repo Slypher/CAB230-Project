@@ -22,4 +22,5 @@ $errors = array(
 foreach ($errors as $error) if ($error) return; // If error is not null, exit
 $data = array('name' => $name, 'suburb' => $suburb, 'rating' => $rating, 'distance' => $distance, 'location-lat' => $location_lat, 'location-long' => $location_long);
 header("Location: http://{$_SERVER['HTTP_HOST']}/results.php?".http_build_query($data));
+exit();
 ?>
