@@ -46,7 +46,7 @@
                         <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();" <?php if (isset($_POST['email'])) echo ' checked'?>><label for="agree-checkbox"> I agree to the <a href="#">Terms and Conditions</a></label><br>
                         <input type="submit" class="button large-button" name="register" value="Register" />
                     </div>
-                    <div class="error-message" <?php if (isset($_POST['register'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>
+                    <div class="error-message" <?php if (isset($_POST['register'])) if (anyErrors($errors)) echo 'style="display:block;"'; ?>>
                         <span class="error email-error"><span class="fa fa-exclamation-triangle"></span> Please <strong>enter an email address</strong><br></span>
                         <span class="error email-invalid-error"><span class="fa fa-exclamation-triangle"></span> Please enter a <strong> valid email address</strong><br></span>
                         <span class="error username-short-error"><span class="fa fa-exclamation-triangle"></span> Please choose a username with <strong>5 or more</strong> characters<br></span>

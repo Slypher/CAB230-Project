@@ -9,4 +9,5 @@ function showPosition(position) {
     document.getElementsByClassName('location-lat')[0].value = position.coords.latitude
     document.getElementsByClassName('location-long')[0].value = position.coords.longitude
     document.getElementsByClassName('distance-field')[0].disabled = false;
+    document.getElementsByClassName('success-message')[0].style.display = 'block';
 }

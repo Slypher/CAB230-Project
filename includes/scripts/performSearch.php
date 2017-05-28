@@ -30,9 +30,9 @@ try {
     $results = $stmt->fetchAll();
 
     foreach ($results as $key => $result) {
-        if ($distance && $location_lat && $location_long) {
+        if ($location_lat && $location_long) {
             $park_distance = calcDistance($location_lat, $location_long, $result['Latitude'], $result['Longitude']) / 1000;
-            if ($park_distance > $distance) {
+            if ($distance && ($park_distance > $distance)) {
                 unset($results[$key]);
                 continue;
             } else $results[$key]['Distance'] = substr($park_distance, 0, strpos($park_distance, '.')).substr($park_distance, strpos($park_distance, '.'), 2).' km';

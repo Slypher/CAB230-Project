@@ -46,7 +46,7 @@ function checkLocationLong(element) {
 
 // Function called to modify CSS properties to display a particular error
 function showError(errorName) {
-    document.getElementsByClassName('error-message')[0].style.display = 'inline-block';
+    document.getElementsByClassName('error-message')[0].style.display = 'block';
     document.getElementsByClassName(errorName)[0].style.display = 'inline';
     return false
 }

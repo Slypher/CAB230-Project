@@ -35,7 +35,7 @@
                     <div id="form-submit-container">
                         <input type="submit" class="button large-button" name="login" value="Login" />
                     </div>
-                    <div class="error-message" <?php if (isset($_POST['login'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>
+                    <div class="error-message" <?php if (isset($_POST['login'])) if (anyErrors($errors)) echo 'style="display:block;"'; ?>>
                         <?php if (isset($_POST['login'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                    </div>
                 </form>

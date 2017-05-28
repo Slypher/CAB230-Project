@@ -21,6 +21,9 @@
             </div>
         </header>
         <div id="page-container">
+            <div class="success-message">
+                <span class="geolocation-success"><span class="fa fa-check"></span> Geolocation successful</span>
+            </div>
             <!-- SECTION 2: Content -->
             <div id="content">
                 <form action="./search.php" method="POST" id="search-form" onsubmit="return validate();">

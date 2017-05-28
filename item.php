@@ -114,7 +114,7 @@
                             echo '</div>';
                             echo '</form>';
                             echo '<div class="error-message" ';
-                            if (isset($_POST['review'])) if (anyErrors($errors)) echo 'style="display:inline-block;"';
+                            if (isset($_POST['review'])) if (anyErrors($errors)) echo 'style="display:block;"';
                                 echo '><span class="error review-error"><span class="fa fa-exclamation-triangle"></span> Please provide a <strong>review</strong><br></span>';
                                 echo '<span class="error review-char-error"><span class="fa fa-exclamation-triangle"></span> Review cannot be more than <strong>255 characters</strong><br></span>';
                                 echo '<span class="error rating-error"><span class="fa fa-exclamation-triangle"></span> Please choose a park rating between <strong>1 and 5</strong><br></span>';
