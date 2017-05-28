@@ -20,6 +20,31 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
+                <div itemscope itemtype="http://schema.org/Place" itemref="<?php foreach ($reviews as $review) echo 'review-'.$review['review_id'].' ' ?>">
+                    <meta itemprop="name" content="<?php echo $item['Name'] ?>"/>
+                    <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                        <meta itemprop="addressCountry" content="AUS"/>
+                        <meta itemprop="addressLocality" content="<?php echo $item['Suburb'] ?>"/>
+                        <meta itemprop="addressRegion" content="QLD"/>
+                        <meta itemprop="streetAddress" content="<?php echo $item['Street'] ?>"/>
+                    </div>
+                    <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                        <meta itemprop="latitude" content="<?php echo $item['Latitude'] ?>"/>
+                        <meta itemprop="longitude" content="<?php echo $item['Longitude'] ?>"/>
+                    </div>
+                    
+                    <?php
+                        if (isset($item['Rating'])) {
+                            echo '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
+                            echo '<meta itemprop="ratingCount" content="'.count($reviews).'" />';
+                            echo '<meta itemprop="reviewCount" content="'.count($reviews).'" />';
+                            echo '<meta itemprop="bestRating" content="5"/>';
+                            echo '<meta itemprop="ratingValue" content="'.$item['Rating'].'"/>';
+                            echo '<meta itemprop="worstRating" content="1"/>';
+                            echo '</div>';
+                        }
+                    ?>
+                </div>
                 <div id="results-container">
                     <div class="title-container">
                         <h2><?php echo $item['Street'].', '.$item['Suburb'] ?></h2>
@@ -35,7 +60,17 @@
                         <div id="map"></div>
                         <?php
                         foreach ($reviews as $review) {
-                            echo '<div class="review-container">';
+                            echo '<div class="review-container" id="review-'.$review['review_id'].'" itemprop="review" itemscope itemtype="http://schema.org/Review">';
+                            echo '<div itemprop="author" itemscope itemtype="http://schema.org/Person">';
+                            echo '<meta itemprop="name" content="'.$review['username'].'"/>';
+                            echo '<meta itemprop="email" content="'.$review['email'].'"/>';
+                            echo '</div>';
+                            echo '<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">';
+                            echo '<meta itemprop="worstRating" content="1"/>';
+                            echo '<meta itemprop="ratingValue" content="'.$review['rating'].'"/>';
+                            echo '<meta itemprop="bestRating" content="5"/>';
+                            echo '</div>';
+                            echo '<meta itemprop="datePublished" content="'.$review['date'].'">';
                             echo '<div class="review-title">';
                             echo '<strong class="review-username"><span class="fa fa-user"></span> '.htmlspecialchars($review['username']).'</strong>';
                             echo '<span class="review-date">posted '.$review['date'].'</span>';
@@ -46,7 +81,7 @@
                             }
                             echo '</div>';
                             echo '</div>';
-                            echo '<div class="review-body">';
+                            echo '<div class="review-body" itemprop="reviewBody">';
                             echo htmlspecialchars($review['review']);
                             echo '</div>';
                             echo '</div>';
