@@ -37,7 +37,7 @@
                         foreach ($reviews as $review) {
                             echo '<div class="review-container">';
                             echo '<div class="review-title">';
-                            echo '<strong class="review-username"><span class="fa fa-user"></span> '.$review['username'].'</strong>';
+                            echo '<strong class="review-username"><span class="fa fa-user"></span> '.htmlspecialchars($review['username']).'</strong>';
                             echo '<span class="review-date">posted '.$review['date'].'</span>';
                             echo '<div class="review-rating">';
                             for ($i = 0; $i < 5; $i++) {
@@ -47,7 +47,7 @@
                             echo '</div>';
                             echo '</div>';
                             echo '<div class="review-body">';
-                            echo $review['review'];
+                            echo htmlspecialchars($review['review']);
                             echo '</div>';
                             echo '</div>';
                         }
@@ -61,7 +61,9 @@
                             echo '" onsubmit="return validate();" onchange="resetError();">';
                             echo '<h3>Leave a review</h3>';
                             echo '<div class="form-container">';
-                            echo '<textarea name="review-text" class="review-textarea" rows="4" cols="36" maxlength="255" onclick="resetError();"></textarea>';
+                            echo '<textarea name="review-text" class="review-textarea" rows="4" cols="36" maxlength="255" onclick="resetError();"';
+                            if (isset($_POST['review-text'])) echo 'value="'.$_POST['review-text'].'"';
+                            echo '></textarea>';
                             echo '<div class="submit-container">';
                             echo '<div class="rating-container">';
                             echo '<div class="rating">';

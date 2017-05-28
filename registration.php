@@ -31,19 +31,19 @@
                             <label><strong>Gender: </strong></label>
                         </div>
                         <div id="form-input-column">
-                            <input type="text" class="input-field email-field" id="email-field" name="email" onclick="resetError();"><br>
-                            <input type="text" class="input-field username-field" id="username-field" name="username" onclick="resetError();"><br>
-                            <input type="password" class="input-field password-field" id="password-field" name="password" onclick="resetError();"><br>
-                            <input type="date" class="input-field date birth-picker" id="birth-picker" name="birth" onclick="resetError();"><br>
+                            <input type="text" class="input-field email-field" id="email-field" name="email" onclick="resetError();" <?php if (isset($_POST['email'])) echo 'value="'.$_POST['email'].'"'?>><br>
+                            <input type="text" class="input-field username-field" id="username-field" name="username" onclick="resetError();" <?php if (isset($_POST['username'])) echo 'value="'.$_POST['username'].'"'?>><br>
+                            <input type="password" class="input-field password-field" id="password-field" name="password" onclick="resetError();" <?php if (isset($_POST['password'])) echo 'value="'.$_POST['password'].'"'?>><br>
+                            <input type="date" class="input-field date birth-picker" id="birth-picker" name="birth" onclick="resetError();" <?php if (isset($_POST['birth'])) echo 'value="'.$_POST['birth'].'"'?>><br>
                             <div id="radio-container">
-                                <input type="radio" class="gender-radio male-radio" id="male-radio" name="gender" value="male" onclick="resetError();"><label for="male-radio">Male</label>
-                                <input type="radio" class="gender-radio female-radio" id="female-radio" name="gender" value="female" onclick="resetError();"><label for="female-radio">Female</label>
-                                <input type="radio" class="gender-radio other-radio" id="other-radio" name="gender" value="other" onclick="resetError();"><label for="other-radio">Other</label><br>
+                                <input type="radio" class="gender-radio male-radio" id="male-radio" name="gender" value="male" onclick="resetError();" <?php if (isset($_POST['gender']) && $_POST['gender'] == 'male') echo 'checked="checked"'?>><label for="male-radio">Male</label>
+                                <input type="radio" class="gender-radio female-radio" id="female-radio" name="gender" value="female" onclick="resetError();" <?php if (isset($_POST['gender']) && $_POST['gender'] == 'female') echo 'checked="checked"'?>><label for="female-radio">Female</label>
+                                <input type="radio" class="gender-radio other-radio" id="other-radio" name="gender" value="other" onclick="resetError();" <?php if (isset($_POST['gender']) && $_POST['gender'] == 'other') echo 'checked="checked"'?>><label for="other-radio">Other</label><br>
                             </div>
                         </div>
                     </div>
                     <div id="form-submit-container">
-                        <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();"><label for="agree-checkbox"> I agree to the <a href="#">Terms and Conditions</a></label><br>
+                        <input type="checkbox" class="agree-checkbox" id="agree-checkbox" name="agree" value="true" onclick="resetError();" <?php if (isset($_POST['email'])) echo ' checked'?>><label for="agree-checkbox"> I agree to the <a href="#">Terms and Conditions</a></label><br>
                         <input type="submit" class="button large-button" name="register" value="Register" />
                     </div>
                     <div class="error-message" <?php if (isset($_POST['register'])) if (anyErrors($errors)) echo 'style="display:inline-block;"'; ?>>

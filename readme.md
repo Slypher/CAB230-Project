@@ -4,7 +4,14 @@ A PHP based website with a MySQL back-end for data storage. It uses HTML Forms w
 ## Directory Structure
 ```
 CAB230-Project/
+  index.php
+  login.php
+  registration.php
+  item.php
+  results.php
+  search.php
   includes/
+    functions.php
     partials/
       footer.php
       head.php
@@ -12,6 +19,11 @@ CAB230-Project/
     scripts/
       login.php
       register.php
+      logout.php
+      item.php
+      review.php
+      performSearch.php
+      validateSearch.php
   lib/
     database.php
   config/
@@ -25,14 +37,8 @@ CAB230-Project/
       ... images ...
     font-awesome/
       ... font awesome files ...
-    index.php
-  login.php
-  registration.php
-  sample-item.php
-  sample-results.php
-  search.php
 ```
 
 ## Authors
-- Hugh Duong-Tran-Tien
 - Connor Gillespie
+- Hugh Duong-Tran-Tien

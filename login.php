@@ -28,8 +28,8 @@
                             <label for="password-field"><strong>Password: </strong></label><br>
                         </div>
                         <div id="form-input-column">
-                            <input type="text" class="input-field email-field" id="email-field" name="email" onclick="resetError();"><br>
-                            <input type="password" class="input-field password-field" id="password-field" name="password" onclick="resetError();"><br>
+                            <input type="text" class="input-field email-field" id="email-field" name="email" onclick="resetError();" <?php if (isset($_POST['email'])) echo 'value="'.$_POST['email'].'"'?>><br>
+                            <input type="password" class="input-field password-field" id="password-field" name="password" onclick="resetError();" <?php if (isset($_POST['password'])) echo 'value="'.$_POST['password'].'"'?>><br>
                         </div>
                     </div>
                     <div id="form-submit-container">

@@ -24,15 +24,15 @@
             <!-- SECTION 2: Content -->
             <div id="content">
                 <form action="./search.php" method="POST" id="search-form" onsubmit="return validate();">
-                    <input type="text" class="input-field name-field" name="name" placeholder="Name of Park" onchange="resetError();"><br>
+                    <input type="text" class="input-field name-field" name="name" placeholder="Name of Park" onchange="resetError();" <?php if (isset($_POST['name'])) echo 'value="'.$_POST['name'].'"'?>><br>
                     <select class="input-field select suburb-picker" name="suburb" onchange="resetError();">
                         <option value="default" id="default" disabled selected>Select a Suburb</option>
                         <?php echoSuburbs($pdo) ?>
                     </select><br>
-                    <input type="text" name="distance" class="input-field distance-field" placeholder="Distance (km)" onchange="resetError();" disabled>
-                    <input type="number" name="rating" class="input-field rating-picker" placeholder="Rating" step="0.5" min="1" max="5" onchange="resetError();"><br>
-                    <input type="hidden" name="location-lat" class="location-lat">
-                    <input type="hidden" name="location-long" class="location-long">
+                    <input type="text" name="distance" class="input-field distance-field" placeholder="Distance (km)" onchange="resetError();" disabled <?php if (isset($_POST['distance'])) echo 'value="'.$_POST['distance'].'"'?>>
+                    <input type="number" name="rating" class="input-field rating-picker" placeholder="Rating" step="0.5" min="1" max="5" onchange="resetError();" <?php if (isset($_POST['rating'])) echo 'value="'.$_POST['rating'].'"'?>><br>
+                    <input type="hidden" name="location-lat" class="location-lat" <?php if (isset($_POST['location-lat'])) echo 'value="'.$_POST['location-lat'].'"'?>>
+                    <input type="hidden" name="location-long" class="location-long" <?php if (isset($_POST['location-long'])) echo 'value="'.$_POST['location-long'].'"'?>>
                     <button type="button" class="button" onclick="getLocation()">Get my Location</button>
                     <input type="submit" name="search" class="button" value="Search" />
                 </form>

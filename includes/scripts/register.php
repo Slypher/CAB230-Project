@@ -22,29 +22,28 @@ try {
     );
     foreach ($errors as $error) if ($error) return; // If error is not null, exit
 
-    // $stmt = $pdo->query("SELECT id, Name, Suburb FROM parks WHERE Name LIKE '%$name%'");
-    // //$stmt = $pdo->prepare("SELECT id, Name, Suburb FROM parks WHERE Name LIKE '%:name%'");
-    // //$stmt->bindValue(':name', $name);
-    // //$stmt->execute();
-    // $results = $stmt->fetchAll();
+    $stmt = $pdo->prepare("SELECT email, username FROM users WHERE email = :email OR username = :username");
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':username', $username);
+    $stmt->execute();
+    $results = $stmt->fetchAll();
 
-    // $toprow = array_shift($results);
-    // $toprow['Rating'] = 0;
+    foreach ($results as $result) {
+        if ($result['email'] == $email) array_push($errors, 'Email already in use');
+        if ($result['username'] == $username) array_push($errors, 'Username already in use');
+    }
+    foreach ($errors as $error) if ($error) return; // If error is not null, exit
 
-    // $row = array();
-    // $rows = array();
-    // $counter = 0;
-    // foreach ($results as $result) {
-    //     $counter += 1;
-    //     $result['Rating'] = 0;
-    //     array_push($row, $result);
-    //     if ($counter == 3) {
-    //         $counter = 0;
-    //         array_push($rows, $row);
-    //         $row = array();
-    //     }
-    // }
-    // if (!empty($row)) array_push($rows, $row);
+    $hashed_password = hash('sha256', $password.$username);
+
+    $stmt = $pdo->prepare("INSERT INTO users (email, username, salt, password, birth, gender) VALUES (:email, :username, :salt, :password, :birth, :gender)");
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':salt', $username);
+    $stmt->bindValue(':password', $hashed_password);
+    $stmt->bindValue(':birth', $birth);
+    $stmt->bindValue(':gender', $gender);
+    $stmt->execute();
     header("Location: http://{$_SERVER['HTTP_HOST']}/index.php?register=true");
     exit();
 } catch (PDOException $e) {
