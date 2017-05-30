@@ -113,4 +113,11 @@ function anyErrors($errors) {
     foreach ($errors as $error) if ($error) return true;
     return false;
 }
+
+function getUrl($levels = 1) {
+    $url_array = parse_url(($_SERVER['HTTPS'] == 'on' ? "https" : "http").'://'.$_SERVER['HTTP_HOST'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI']);
+    $url = $url_array['scheme'].'://'.$url_array['host'];
+    $url .= (substr(dirname($url_array['path'], $levels), -1) == '\\' || dirname($url_array['path'], $levels) == '' ? dirname($url_array['path'], $levels) : dirname($url_array['path'], $levels).'\\');
+    return $url;
+}
 ?>

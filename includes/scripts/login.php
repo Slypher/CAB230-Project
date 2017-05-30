@@ -20,12 +20,8 @@ try {
 
     if ($account['password'] != hash('sha256', $password.$account['username'])) return array_push($errors, 'Password is incorrect');
 
-    //$session_start();
     $_SESSION['user'] = $account;
-    $url_array = parse_url(($_SERVER['HTTPS'] == 'on' ? "https" : "http").'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-    $url = $url_array['scheme'].'://'.$url_array['host'];
-    $url .= (substr(dirname($url_array['path']), -1) == '\\' || dirname($url_array['path']) == '' ? dirname($url_array['path']) : dirname($url_array['path']).'\\');
-    header('Location: '.$url.'index.php?login=true');
+    header('Location: '.getUrl().'index.php?login=true');
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();

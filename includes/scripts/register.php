@@ -44,10 +44,7 @@ try {
     $stmt->bindValue(':birth', $birth);
     $stmt->bindValue(':gender', $gender);
     $stmt->execute();
-    $url_array = parse_url(($_SERVER['HTTPS'] == 'on' ? "https" : "http").'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-    $url = $url_array['scheme'].'://'.$url_array['host'];
-    $url .= (substr(dirname($url_array['path']), -1) == '\\' || dirname($url_array['path']) == '' ? dirname($url_array['path']) : dirname($url_array['path']).'\\');
-    header('Location: '.$url.'index.php?register=true');
+    header('Location: '.getUrl().'index.php?register=true');
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();
