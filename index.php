@@ -13,6 +13,15 @@
         <header>
             <?php require_once __DIR__.'/includes/partials/navbar.php' ?>
             <div id="page-header">
+                <!-- i haven't commented about using font awesome icons in other files
+                     because i use them so frequently, so i will describe it here
+                     
+                     font awesome works by using CSS to insert a unicode character
+                     into the HTML based on the classes that are specified
+                     (such as fa fa-graduation-cap as below)
+
+                     it then uses a special font to style the unicode, creating the icon
+                 -->
                 <h1><span class="fa fa-graduation-cap"></span> CAB230 Project</h1>
             </div>
         </header>
