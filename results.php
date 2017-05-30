@@ -43,6 +43,12 @@
                                
                                 // hidden inputs containing data for google maps javascript resultsMap.js
                                 echo '<input type="hidden" name="url" value="http://'.$_SERVER['HTTP_HOST'].'/item.php?id='.$result["id"].'&distance='.$result["Distance"].'" />';
+                                echo '<input type="hidden" name="name" value="'.$result['Name'].'" />';
+                                echo '<input type="hidden" name="suburb" value="'.$result['Suburb'].'" />';
+                                echo '<input type="hidden" name="street" value="'.$result['Street'].'" />';
+                                echo '<input type="hidden" name="rating" value="'.$result['Rating'].'" />';
+                                echo '<input type="hidden" name="distance" value="'.$result['Distance'].'" />';
+                                echo '<input type="hidden" name="location_lat" value="'.$result['Latitude'].'" />';
                                 echo '<input type="hidden" name="location_lat" value="'.$result['Latitude'].'" />';
                                 echo '<input type="hidden" name="location_long" value="'.$result['Longitude'].'" />';
                                 echo '</tr>';
