@@ -21,7 +21,9 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
+                <!-- registration form, posts to self -->
                 <form action="./registration.php" method="POST" id="registration-form" onsubmit="return validate();" onchange="resetError();">
+                    <!-- labels on left floated container, inputs on right floated container -->
                     <div id="form-float-container">
                         <div id="form-label-column">
                             <label for="email-field"><strong>Email Address: </strong></label><br>
@@ -59,6 +61,7 @@
                         <span class="error age-young-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>before 2010</strong><br></span>
                         <span class="error age-old-error"><span class="fa fa-exclamation-triangle"></span> Please select a date of birth <strong>after 1917</strong><br></span>
                         <span class="error agree-error"><span class="fa fa-exclamation-triangle"></span> You must agree to our <strong>Terms and Conditions</strong><br></span>
+                        <!-- if any errors, display then if the user has tried to register -->
                         <?php if (isset($_POST['register'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                     </div>
                 </form>

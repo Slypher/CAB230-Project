@@ -21,6 +21,7 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
+                <!-- login form, posts to self -->
                 <form action="./login.php" method="POST" id="login-form" onchange="resetError();">
                     <div id="form-float-container">
                         <div id="form-label-column">
@@ -36,6 +37,7 @@
                         <input type="submit" class="button large-button" name="login" value="Login" />
                     </div>
                     <div class="error-message" <?php if (isset($_POST['login'])) if (anyErrors($errors)) echo 'style="display:block;"'; ?>>
+                        <!-- display any errors if user has tried to log in -->
                         <?php if (isset($_POST['login'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                    </div>
                 </form>

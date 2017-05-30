@@ -21,11 +21,13 @@
             </div>
         </header>
         <div id="page-container">
+            <!-- geolocation success box, hidden to start and displayed by javascript -->
             <div class="success-message">
                 <span class="geolocation-success"><span class="fa fa-check"></span> Geolocation successful</span>
             </div>
             <!-- SECTION 2: Content -->
             <div id="content">
+                <!-- search form with client validation -->
                 <form action="./search.php" method="POST" id="search-form" onsubmit="return validate();">
                     <input type="text" class="input-field name-field" name="name" placeholder="Name of Park" onchange="resetError();" <?php if (isset($_POST['name'])) echo 'value="'.$_POST['name'].'"'?>><br>
                     <select class="input-field select suburb-picker" name="suburb" onchange="resetError();">
@@ -44,6 +46,7 @@
                     <span class="error location-lat-numeric-error"><span class="fa fa-exclamation-triangle"></span> Location latitude must be a <strong>number</strong><br></span>
                     <span class="error location-long-numeric-error"><span class="fa fa-exclamation-triangle"></span> Location longitude must be a <strong>number</strong><br></span>
                     <span class="error rating-num-error"><span class="fa fa-exclamation-triangle"></span> Please choose a park rating between <strong>1 and 5</strong><br></span>
+                    <!-- iterate through any errors, if search had just been attempted -->
                     <?php if (isset($_POST['search'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>'; ?>
                 </div>
             </div>

@@ -4,3 +4,4 @@
 <link rel="icon" href="public/img/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Connor Gillespie and Hugh Duong-Tran-Tien">
+<!-- the head.php file is included in every page -->

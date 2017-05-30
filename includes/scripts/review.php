@@ -2,6 +2,10 @@
 if (!isset($_POST['review'])) return;
 require_once __DIR__.'/../../lib/database.php';
 require_once __DIR__.'/../functions.php';
+
+// this file both validates the review POSTed by the user and then
+// attempts to add the review to the database
+
 try {
     parse_str($_SERVER['QUERY_STRING'], $query);
     $park_id = (isset($query['id']) && $query['id'] != '' ? $query['id'] : null);
@@ -18,6 +22,7 @@ try {
     );
     foreach ($errors as $error) if ($error) return; // If error is not null, exit
 
+    // add the review to the database
     $stmt = $pdo->prepare('INSERT INTO reviews (user_id, park_id, review, rating, date) VALUES (:user_id, :park_id, :review, :rating, :date)');
     $stmt->bindValue(':user_id', $user_id);
     $stmt->bindValue(':park_id', $park_id);
@@ -27,9 +32,8 @@ try {
     $stmt->execute();
 
     $url = getUrl();
-    header('Location: '.$url.'item.php?id='.$id);
-    if (isset($distance)) $url .= '&distance='.$distance;
-    header($url);
+    header('Location: '.$url.'item.php?id='.$id); // redirect to the correct item page
+    if (isset($distance)) $url .= '&distance='.$distance; // add the distance query string, if it had one
     exit();
 } catch (PDOException $e) {
 echo $e->getMessage();

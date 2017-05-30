@@ -114,6 +114,12 @@ function anyErrors($errors) {
     return false;
 }
 
+/* get the correct url, can also specify how many directories below to return */
+/* e.g
+ * INPUT: $levels = 3, (CURRENT URL) = fastapps04/n9467211/includes/scripts/filename.php
+ * OUTPUT: fastapps04/n9467211/
+ * defaults to 1 (no directories below)
+ */
 function getUrl($levels = 1) {
     $url_array = parse_url(($_SERVER['HTTPS'] == 'on' ? "https" : "http").'://'.$_SERVER['HTTP_HOST'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI']);
     $url = $url_array['scheme'].'://'.$url_array['host'];

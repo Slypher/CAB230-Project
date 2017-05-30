@@ -17,6 +17,7 @@
             </div>
         </header>
         <div id="page-container">
+            <!-- display success message if query string has login/register inside -->
             <?php if (isset($query['login'])) echo '<div class="success-message" style="display:block;"><span class="fa fa-check"></span> Login successful</div>'; ?>
             <?php if (isset($query['register'])) echo '<div class="success-message" style="display:block;"><span class="fa fa-check"></span> Registration successful</div>'; ?>
             <!-- SECTION 2: Content -->

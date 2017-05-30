@@ -7,6 +7,7 @@
         <?php require_once __DIR__.'/includes/partials/head.php' ?>
         <title><?php echo $item['Name'] ?></title>
         <link rel="stylesheet" href="public/css/item.css">
+        <!-- if user logged in, include review form validation -->
         <?php if (isset($_SESSION['user'])) echo'<script src="public/js/validate_review.js"></script>'; ?>
     </head>
     <body>
@@ -20,6 +21,9 @@
         <div id="page-container">
             <!-- SECTION 2: Content -->
             <div id="content">
+                <!-- the microdata for the place, references each review -->
+                <!-- iterates through each review_id and adds a reference to it -->
+                <!-- this microdata uses invisible meta tags -->
                 <div itemscope itemtype="http://schema.org/Place" itemref="<?php foreach ($reviews as $review) echo 'review-'.$review['review_id'].' ' ?>">
                     <meta itemprop="name" content="<?php echo $item['Name'] ?>"/>
                     <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -34,6 +38,7 @@
                     </div>
                     
                     <?php
+                        // if park has ratings, calculate aggregate rating and add to microdata
                         if (isset($item['Rating'])) {
                             echo '<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
                             echo '<meta itemprop="ratingCount" content="'.count($reviews).'" />';
@@ -48,18 +53,23 @@
                 <div id="results-container">
                     <div class="title-container">
                         <h2><?php echo $item['Street'].', '.$item['Suburb'] ?></h2>
+                        <!-- display park distance to user if it exists -->
                         <?php if (isset($distance)) echo '<span class="subtle-text">'.$distance.' km from you</span>' ?>
                     </div>
                     <div class="reviews">
                         <div class="title-container">
                             <h3><span class="fa fa-book"></span> Reviews</h3>
+                            <!-- display park average rating if it exists -->
                             <?php if (isset($item['Rating'])) echo '<span class="subtle-text">average rating of '.substr($item['Rating'], 0, 3).' stars</span>' ?>
                         </div>
+                        <!-- hidden input fields used by itemMap.js -->
                         <input type="hidden" name="location_lat" value="<?php echo $item['Latitude'] ?>" />
                         <input type="hidden" name="location_long" value="<?php echo $item['Longitude'] ?>" />
                         <div id="map"></div>
                         <?php
-                        foreach ($reviews as $review) {
+                        foreach ($reviews as $review) { // iterate through each review
+                            // add microdata to each review, including the review_id so that
+                            // the place (as defined above) can reference this review
                             echo '<div class="review-container" id="review-'.$review['review_id'].'" itemprop="review" itemscope itemtype="http://schema.org/Review">';
                             echo '<div itemprop="author" itemscope itemtype="http://schema.org/Person">';
                             echo '<meta itemprop="name" content="'.$review['username'].'"/>';
@@ -75,14 +85,14 @@
                             echo '<strong class="review-username"><span class="fa fa-user"></span> '.htmlspecialchars($review['username']).'</strong>';
                             echo '<span class="review-date">posted '.$review['date'].'</span>';
                             echo '<div class="review-rating">';
-                            for ($i = 0; $i < 5; $i++) {
+                            for ($i = 0; $i < 5; $i++) { // generate font-awesome stars to represent rating
                                 if ($i < (int)$review['rating']) echo '<span class="fa fa-star"></span>';
                                 else echo '<span class="fa fa-star-o"></span>';
                             }
                             echo '</div>';
                             echo '</div>';
                             echo '<div class="review-body" itemprop="reviewBody">';
-                            echo htmlspecialchars($review['review']);
+                            echo htmlspecialchars($review['review']); // escape html
                             echo '</div>';
                             echo '</div>';
                         }
@@ -90,7 +100,7 @@
                     </div>
                 </div>
                     <?php
-                        if (isset($_SESSION['user'])) {
+                        if (isset($_SESSION['user'])) { // if user logged in, display review form
                             echo '<form class="review-form" method="POST" action="./item.php?id='.$item['id'];
                             if (isset($distance)) echo '&distance='.$distance;
                             echo '" onsubmit="return validate();" onchange="resetError();">';
@@ -101,6 +111,11 @@
                             echo '></textarea>';
                             echo '<div class="submit-container">';
                             echo '<div class="rating-container">';
+                            // some CSS trickery going on below, see /public/css/item.css
+                            // the radio buttons have labels attached, the radio buttons become
+                            // invisible and the labels have font awesome icons attached
+                            // the CSS then takes care of the appearance, using CSS selectors
+                            // it modifies the appearance as the user hovers/clicks on elements
                             echo '<div class="rating">';
                             echo '<input type="radio" id="star5" class="star5" name="rating" value="5" onclick="resetError();"/><label for="star5"></label>';
                             echo '<input type="radio" id="star4" class="star4" name="rating" value="4" onclick="resetError();"/><label for="star4"></label>';
@@ -118,10 +133,12 @@
                                 echo '><span class="error review-error"><span class="fa fa-exclamation-triangle"></span> Please provide a <strong>review</strong><br></span>';
                                 echo '<span class="error review-char-error"><span class="fa fa-exclamation-triangle"></span> Review cannot be more than <strong>255 characters</strong><br></span>';
                                 echo '<span class="error rating-error"><span class="fa fa-exclamation-triangle"></span> Please choose a park rating between <strong>1 and 5</strong><br></span>';
+                                // display any errors if user has attempted to leave a review
                                 if (isset($_POST['review'])) foreach ($errors as $error) if ($error) echo '<span class="error" style="display:inline;"><span class="fa fa-exclamation-triangle"></span> '.$error.'<br></span>';
                             echo '</div>';
                         } else echo '<h3><a href="login.php">Login</a> to leave a review</h3>'
                     ?>
+                <!-- google maps map script -->
                 <script src="public/js/itemMap.js"></script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGLqT3avfEd6E22DZPezSxqAVRYk8tP6U&callback=initMap"></script>
             </div>
