@@ -6,11 +6,7 @@
         <?php if (!isset($_SESSION['user'])) echo '<li class="navbar-item"><a class="navbar-link" href="registration.php"><span class="fa fa-user-plus"></span> Register</a></li>'; ?>
         <?php
             if (isset($_SESSION['user'])) {
-                echo '<li class="navbar-item">';
-                echo '<form method="POST" action="index.php" class="navbar-link">';
-                echo '<button type="submit" name="logout" value="logout" class="navbar-link navbar-logout"><span class="fa fa-sign-out"></span> Logout</button>';
-                echo '</form>';
-                echo '</li>';
+                echo '<li class="navbar-item"><a class="navbar-link" href="includes/scripts/logout.php"><span class="fa fa-sign-out"></span> Logout</a></li>';
             }
         ?>
     </ul>

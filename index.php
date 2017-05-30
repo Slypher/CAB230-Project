@@ -1,5 +1,4 @@
 <?php session_start() ?>
-<?php require_once __DIR__.'/includes/scripts/logout.php' ?>
 <?php parse_str($_SERVER['QUERY_STRING'], $query); ?>
 <!DOCTYPE html>
 <html>
