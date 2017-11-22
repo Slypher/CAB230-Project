@@ -38,7 +38,3 @@ CAB230-Project/
     font-awesome/
       ... font awesome files ...
 ```
-
-## Authors
-- Connor Gillespie
-- Hugh Duong-Tran-Tien
